@@ -1,0 +1,13 @@
+{
+    "snyk.advanced.organization": "d48c0f0d-a20e-41db-a07f-678b2d0a2f0a",
+    "snyk.advanced.autoSelectOrganization": true,
+    "snyk.features.codeSecurity": false,
+    "snyk.features.openSourceSecurity": false,
+    "snyk.features.infrastructureAsCode": false,
+    "snyk.severity": {
+        "critical": false,
+        "high": false,
+        "medium": false,
+        "low": false
+    }
+}

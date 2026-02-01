@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>ActiFly</title>
+  <link rel="canonical" href="https://actifly.app/" />
+  <script>
+    (function () {
+      const supported = ["de","en","fr","lb","nl","es","it","pt"];
+      const fallback = "en";
+
+      const cookieLang = document.cookie
+        .split(";")
+        .map(s => s.trim())
+        .find(s => s.startsWith("actifly_lang="));
+      if (cookieLang) {
+        const v = decodeURIComponent(cookieLang.split("=")[1] || "").toLowerCase();
+        if (supported.includes(v)) {
+          location.replace("/" + v + "/");
+          return;
+        }
+      }
+
+      const nav = (navigator.languages && navigator.languages.length)
+        ? navigator.languages
+        : [navigator.language || fallback];
+
+      const pick = (lang) => {
+        const l = (lang || "").toLowerCase();
+        if (supported.includes(l)) return l;
+        const base = l.split("-")[0];
+        if (supported.includes(base)) return base;
+        return null;
+      };
+
+      for (const l of nav) {
+        const p = pick(l);
+        if (p) { location.replace("/" + p + "/"); return; }
+      }
+
+      location.replace("/" + fallback + "/");
+    })();
+  </script>
+</head>
+<body></body>
+</html>
