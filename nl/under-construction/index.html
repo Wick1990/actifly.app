@@ -1,55 +1,112 @@
 <!doctype html>
 <html lang="nl">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ActiFly — In aanbouw</title>
-<meta name="description" content="Deze taalversie wordt momenteel voorbereid."/>
-<link rel="manifest" href="/manifest.webmanifest"/>
-<link rel="icon" href="/assets/icon.webp"/>
-<link rel="stylesheet" href="/styles.css"/>
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ActiFly — In aanbouw</title>
+    <meta name="description" content="Deze taalversie wordt momenteel voorbereid." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/assets/icon.webp" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
 
-<body>
-<a class="skipLink" href="#main">Ga naar inhoud</a>
+  <body>
+    <a class="skipLink" href="#main">Ga naar inhoud</a>
 
-<header class="siteHeader">
-<div class="container">
-<a class="brand" href="/nl/">
-<img class="wm" src="/assets/wordmark.webp" alt="ActiFly"/>
-</a>
-</div>
-</header>
+    <header class="siteHeader">
+      <div class="container">
+        <div class="topbar">
+          <a class="brand" href="/nl/" aria-label="ActiFly startpagina">
+            <span class="icon" aria-hidden="true">
+              <img src="/assets/icon.webp" alt="" />
+            </span>
+            <img class="wm" src="/assets/wordmark.webp" alt="ActiFly" />
+          </a>
 
-<main id="main">
-<section class="section">
-<div class="container">
+          <div class="navWrap">
+            <nav class="nav" aria-label="Primary">
+              <a href="/nl/">Home</a>
+              <a href="/nl/how-it-works/">Hoe het werkt</a>
+              <a href="/nl/safety/">Veiligheid</a>
+              <a href="/nl/faq/">FAQ</a>
+              <a href="/nl/about/">Over ons</a>
+              <a href="/nl/contact/">Contact</a>
+            </nav>
 
-<span class="badge">In aanbouw</span>
-<h1 class="h1">We zijn eraan bezig.</h1>
+            <div class="lang" aria-label="Language switcher">
+              <button type="button" data-lang="de">DE</button>
+              <button type="button" data-lang="en">EN</button>
+              <button type="button" data-lang="fr">FR</button>
+              <button type="button" data-lang="lb">LU</button>
+              <button type="button" data-lang="nl" class="active">NL</button>
+              <button type="button" data-lang="es">ES</button>
+              <button type="button" data-lang="it">IT</button>
+              <button type="button" data-lang="pt">PT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-<p class="p">
-De Engelse versie is als eerste klaar. Andere talen volgen binnenkort met hetzelfde ontwerp en kwaliteit.
-</p>
+    <main id="main">
+      <section class="section">
+        <div class="container">
+          <div class="hero">
+            <div>
+              <div class="kickerRow">
+                <span class="badge">In aanbouw</span>
+                <span class="small">Deze taalversie wordt voorbereid.</span>
+              </div>
 
-<div class="actions">
-<a class="btn btnPrimary" href="/en/">Ga naar Engels</a>
-<a class="btn btnGhost" href="mailto:support@actifly.app">support@actifly.app</a>
-</div>
+              <h1 class="h1">We zijn ermee bezig.</h1>
+              <p class="p">
+                De Engelse versie is als eerste klaar. Andere talen volgen binnenkort —
+                met dezelfde lay-out, dezelfde kwaliteit en professionele vertalingen.
+              </p>
 
-</div>
-</section>
-</main>
+              <div class="actions">
+                <a class="btn btnPrimary" href="/en/">Ga naar Engels</a>
+                <a class="btn btnGhost" href="mailto:support@actifly.app">support@actifly.app</a>
+              </div>
+            </div>
 
-<footer class="siteFooter">
-<div class="container">
-© <span id="year"></span> ActiFly
-</div>
-</footer>
+            <aside class="heroCard" aria-label="What’s next">
+              <div class="sectionHeader" style="margin-bottom:12px;">
+                <h2 class="h2">Wat gebeurt er nu?</h2>
+                <p class="small">We bouwen de volledige internationale versie.</p>
+              </div>
 
-<script>
-document.getElementById("year").textContent=new Date().getFullYear();
-</script>
-<script src="/app.js" defer></script>
-</body>
+              <div class="grid2">
+                <div class="card">
+                  <h3 class="h3">Consistente lay-out</h3>
+                  <p class="small">Dezelfde structuur in alle talen.</p>
+                </div>
+                <div class="card">
+                  <h3 class="h3">Professionele vertalingen</h3>
+                  <p class="small">Natuurlijk en verzorgd, niet woord voor woord.</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="siteFooter">
+      <div class="container">
+        <div class="footer">
+          <div>© <span id="year"></span> ActiFly</div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <a href="/nl/legal/privacy/">Privacy</a>
+            <a href="/nl/legal/terms/">Voorwaarden</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="/app.js" defer></script>
+  </body>
 </html>

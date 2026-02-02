@@ -1,74 +1,112 @@
 <!doctype html>
 <html lang="es">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ActiFly — En construcción</title>
-<meta name="description" content="Esta versión de idioma se está preparando actualmente."/>
-<link rel="manifest" href="/manifest.webmanifest"/>
-<link rel="icon" href="/assets/icon.webp"/>
-<link rel="stylesheet" href="/styles.css"/>
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ActiFly — En construcción</title>
+    <meta name="description" content="Esta versión de idioma se está preparando actualmente." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/assets/icon.webp" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
 
-<body>
-<a class="skipLink" href="#main">Ir al contenido</a>
+  <body>
+    <a class="skipLink" href="#main">Saltar al contenido</a>
 
-<header class="siteHeader">
-<div class="container">
-<div class="topbar">
-<a class="brand" href="/es/" aria-label="Inicio ActiFly">
-<span class="icon"><img src="/assets/icon.webp" alt=""/></span>
-<img class="wm" src="/assets/wordmark.webp" alt="ActiFly"/>
-</a>
+    <header class="siteHeader">
+      <div class="container">
+        <div class="topbar">
+          <a class="brand" href="/es/" aria-label="Inicio ActiFly">
+            <span class="icon" aria-hidden="true">
+              <img src="/assets/icon.webp" alt="" />
+            </span>
+            <img class="wm" src="/assets/wordmark.webp" alt="ActiFly" />
+          </a>
 
-<nav class="nav">
-<a href="/es/">Inicio</a>
-<a href="/es/how-it-works/">Cómo funciona</a>
-<a href="/es/safety/">Seguridad</a>
-<a href="/es/faq/">FAQ</a>
-<a href="/es/about/">Sobre nosotros</a>
-<a href="/es/contact/">Contacto</a>
-</nav>
-</div>
-</div>
-</header>
+          <div class="navWrap">
+            <nav class="nav" aria-label="Primary">
+              <a href="/es/">Inicio</a>
+              <a href="/es/how-it-works/">Cómo funciona</a>
+              <a href="/es/safety/">Seguridad</a>
+              <a href="/es/faq/">FAQ</a>
+              <a href="/es/about/">Sobre nosotros</a>
+              <a href="/es/contact/">Contacto</a>
+            </nav>
 
-<main id="main">
-<section class="section">
-<div class="container">
-<div class="hero">
+            <div class="lang" aria-label="Language switcher">
+              <button type="button" data-lang="de">DE</button>
+              <button type="button" data-lang="en">EN</button>
+              <button type="button" data-lang="fr">FR</button>
+              <button type="button" data-lang="lb">LU</button>
+              <button type="button" data-lang="nl">NL</button>
+              <button type="button" data-lang="es" class="active">ES</button>
+              <button type="button" data-lang="it">IT</button>
+              <button type="button" data-lang="pt">PT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-<div>
-<span class="badge">En construcción</span>
-<h1 class="h1">Estamos trabajando en ello.</h1>
-<p class="p">
-La versión en inglés está lista primero. Los demás idiomas llegarán pronto con el mismo diseño y calidad profesional.
-</p>
+    <main id="main">
+      <section class="section">
+        <div class="container">
+          <div class="hero">
+            <div>
+              <div class="kickerRow">
+                <span class="badge">En construcción</span>
+                <span class="small">Esta versión de idioma está en preparación.</span>
+              </div>
 
-<div class="actions">
-<a class="btn btnPrimary" href="/en/">Ir a inglés</a>
-<a class="btn btnGhost" href="mailto:support@actifly.app">support@actifly.app</a>
-</div>
-</div>
+              <h1 class="h1">Estamos trabajando en ello.</h1>
+              <p class="p">
+                La versión en inglés está lista primero. Los demás idiomas seguirán pronto —
+                con el mismo diseño, la misma calidad y traducciones profesionales.
+              </p>
 
-</div>
-</div>
-</section>
-</main>
+              <div class="actions">
+                <a class="btn btnPrimary" href="/en/">Ir al inglés</a>
+                <a class="btn btnGhost" href="mailto:support@actifly.app">support@actifly.app</a>
+              </div>
+            </div>
 
-<footer class="siteFooter">
-<div class="container">
-<div class="footer">
-<div>© <span id="year"></span> ActiFly</div>
-<a href="/es/legal/privacy/">Privacidad</a>
-<a href="/es/legal/terms/">Términos</a>
-</div>
-</div>
-</footer>
+            <aside class="heroCard" aria-label="What’s next">
+              <div class="sectionHeader" style="margin-bottom:12px;">
+                <h2 class="h2">¿Qué sigue ahora?</h2>
+                <p class="small">Estamos construyendo la versión internacional completa.</p>
+              </div>
 
-<script>
-document.getElementById("year").textContent=new Date().getFullYear();
-</script>
-<script src="/app.js" defer></script>
-</body>
+              <div class="grid2">
+                <div class="card">
+                  <h3 class="h3">Diseño consistente</h3>
+                  <p class="small">La misma estructura en todos los idiomas.</p>
+                </div>
+                <div class="card">
+                  <h3 class="h3">Traducciones profesionales</h3>
+                  <p class="small">Naturales y cuidadas, no palabra por palabra.</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="siteFooter">
+      <div class="container">
+        <div class="footer">
+          <div>© <span id="year"></span> ActiFly</div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <a href="/es/legal/privacy/">Privacidad</a>
+            <a href="/es/legal/terms/">Términos</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="/app.js" defer></script>
+  </body>
 </html>

@@ -18,37 +18,61 @@ https://www.actifly.app/*   https://actifly.app/:splat   301
 /it                         /it/                        301
 /pt                         /pt/                        301
 
-# =========================================
-# ActiFly – Language Fallback Redirects
-# =========================================
 
-# Root → EN
-/  /en/  302
+# ===========================
+# Under-construction fallbacks (per language)
+# Goal:
+# - All unfinished pages for each language -> /<lang>/under-construction/
+# - BUT keep /<lang>/under-construction/ reachable (no loop)
+# - Easy to enable pages later: add a more specific 200 rule ABOVE the redirect
+# ===========================
 
-# --- DE ---
-/de/under-construction/*   /de/under-construction/   200
-/de/*                      /de/under-construction/   302
-/  /de/  302
-# --- FR ---
-/fr/under-construction/*   /fr/under-construction/   200
-/fr/*                      /fr/under-construction/   302
+# ---- DE (currently only under-construction) ----
+/de/under-construction/*    /de/under-construction/:splat    200
+/de/*                       /de/under-construction/          302
 
-# --- LB ---
-/lb/under-construction/*   /lb/under-construction/   200
-/lb/*                      /lb/under-construction/   302
+# ---- FR (currently only under-construction) ----
+/fr/under-construction/*    /fr/under-construction/:splat    200
+/fr/*                       /fr/under-construction/          302
 
-# --- NL ---
-/nl/under-construction/*   /nl/under-construction/   200
-/nl/*                      /nl/under-construction/   302
+# ---- ES (currently only under-construction) ----
+/es/under-construction/*    /es/under-construction/:splat    200
+/es/*                       /es/under-construction/          302
 
-# --- ES ---
-/es/under-construction/*   /es/under-construction/   200
-/es/*                      /es/under-construction/   302
+# ---- IT (currently only under-construction) ----
+/it/under-construction/*    /it/under-construction/:splat    200
+/it/*                       /it/under-construction/          302
 
-# --- IT ---
-/it/under-construction/*   /it/under-construction/   200
-/it/*                      /it/under-construction/   302
+# ---- LB (currently only under-construction) ----
+/lb/under-construction/*    /lb/under-construction/:splat    200
+/lb/*                       /lb/under-construction/          302
 
-# --- PT ---
-/pt/under-construction/*   /pt/under-construction/   200
-/pt/*                      /pt/under-construction/   302
+# ---- NL (currently only under-construction) ----
+/nl/under-construction/*    /nl/under-construction/:splat    200
+/nl/*                       /nl/under-construction/          302
+
+# ---- PT (currently only under-construction) ----
+/pt/under-construction/*    /pt/under-construction/:splat    200
+/pt/*                       /pt/under-construction/          302
+
+
+# ===========================
+# EN: only redirect unfinished sections (keep /en/, /en/legal/privacy/, /en/legal/terms/)
+# ===========================
+
+# Keep EN under-construction reachable
+/en/under-construction/*    /en/under-construction/:splat    200
+
+# Keep the finished legal pages reachable (defensive; first match wins)
+/en/legal/privacy/*         /en/legal/privacy/:splat         200
+/en/legal/terms/*           /en/legal/terms/:splat           200
+
+# Redirect unfinished EN sections
+/en/about/*                 /en/under-construction/          302
+/en/contact/*               /en/under-construction/          302
+/en/faq/*                   /en/under-construction/          302
+/en/how-it-works/*          /en/under-construction/          302
+/en/safety/*                /en/under-construction/          302
+
+# Redirect any other unfinished EN legal routes (but NOT privacy/terms because of the 200 rules above)
+/en/legal/*                 /en/under-construction/          302
