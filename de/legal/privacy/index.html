@@ -1,143 +1,235 @@
 <!doctype html>
 <html lang="de">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ActiFly – Datenschutz</title>
-  <meta name="description" content="Datenschutzerklärung für ActiFly." />
-  <link rel="canonical" href="https://actifly.app/de/legal/privacy/" />
-  <link rel="stylesheet" href="/styles.css" />
-</head>
-<body>
-  <div class="container">
-    <div class="shell">
-      <header class="topbar">
-        <div class="brand">
-          <div class="icon"><img src="/assets/icon.png" alt="ActiFly icon"></div>
-          <img class="wm" src="/assets/wordmark.png" alt="ActiFly wordmark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ActiFly – Datenschutzerklärung</title>
+    <meta name="description" content="Datenschutzerklärung für ActiFly." />
+    <link rel="canonical" href="https://actifly.app/de/legal/privacy/" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body id="top">
+    <a class="skipLink" href="#main">Zum Inhalt springen</a>
+
+    <!-- Header (gleich wie auf den Hauptseiten) -->
+    <header class="siteHeader">
+      <div class="container">
+        <div class="topbar">
+          <a class="brand" href="/de/" aria-label="ActiFly Startseite">
+            <span class="icon" aria-hidden="true">
+              <img
+                src="/assets/logo.webp"
+                alt=""
+                width="48"
+                height="48"
+                decoding="async"
+              />
+            </span>
+            <img class="wm" src="/assets/wordmark.webp" alt="ActiFly" decoding="async" />
+          </a>
+
+          <div class="navWrap">
+            <nav class="nav" aria-label="Primary">
+              <a href="/de/">Startseite</a>
+              <a href="/de/how-it-works/">So funktioniert’s</a>
+              <a href="/de/safety/">Sicherheit</a>
+              <a href="/de/faq/">FAQ</a>
+              <a href="/de/about/">Über uns</a>
+              <a href="/de/contact/">Kontakt</a>
+            </nav>
+
+            <div class="lang" aria-label="Language">
+              <button type="button" data-lang="de">DE</button>
+              <button type="button" data-lang="en">EN</button>
+              <button type="button" data-lang="fr">FR</button>
+              <button type="button" data-lang="lb">LU</button>
+              <button type="button" data-lang="nl">NL</button>
+              <button type="button" data-lang="es">ES</button>
+              <button type="button" data-lang="it">IT</button>
+              <button type="button" data-lang="pt">PT</button>
+            </div>
+          </div>
         </div>
-        <nav class="nav">
-          <a href="/de/">Start</a>
-          <a href="/de/contact/">Kontakt</a>
-        </nav>
-        <div class="lang">
-          <button data-lang="de">DE</button>
-          <button data-lang="en">EN</button>
-          <button data-lang="fr">FR</button>
-          <button data-lang="lb">LU</button>
-        </div>
-      </header>
+      </div>
+    </header>
 
-      <main class="main">
-        <h1 class="h1" style="font-size:30px">Datenschutzerklärung</h1>
-        <div class="card" style="white-space:pre-wrap; line-height:1.65; color:rgba(234,241,255,.88)">
-Stand: Februar 2026
+    <!-- Legal Layout -->
+    <div class="container">
+      <div class="shell">
+        <main id="main" class="main">
+          <div class="legalHeader">
+            <h1 class="h1" style="font-size: 30px; margin-bottom: 6px">
+              Datenschutzerklärung
+            </h1>
+            <p class="small" style="margin: 0">
+              Letzte Aktualisierung: <strong>Februar 2026</strong>
+            </p>
+          </div>
 
-Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen.
-Mit dieser Datenschutzerklärung informieren wir Sie darüber, welche Daten im Rahmen der Nutzung der App ActiFly verarbeitet werden und zu welchem Zweck.
+          <div class="legalGrid">
+            <aside class="legalToc card">
+              <div class="h2" style="margin-bottom: 10px">Auf dieser Seite</div>
+              <a class="tocLink" href="#controller">1. Verantwortlicher</a>
+              <a class="tocLink" href="#data">2. Verarbeitete Daten</a>
+              <a class="tocLink tocSub" href="#data-account">a) Konto & Profil</a>
+              <a class="tocLink tocSub" href="#data-usage">b) Nutzung & Kommunikation</a>
+              <a class="tocLink tocSub" href="#data-location">c) Standort</a>
+              <a class="tocLink tocSub" href="#data-technical">d) Technische Daten</a>
+              <a class="tocLink" href="#purpose">3. Zweck der Verarbeitung</a>
+              <a class="tocLink" href="#legalbasis">4. Rechtsgrundlage</a>
+              <a class="tocLink" href="#disclosure">5. Weitergabe</a>
+              <a class="tocLink" href="#retention">6. Speicherdauer</a>
+              <a class="tocLink" href="#rights">7. Ihre Rechte</a>
+              <a class="tocLink" href="#minors">8. Minderjährige</a>
+              <a class="tocLink" href="#changes">9. Änderungen</a>
+            </aside>
 
-1. Verantwortlicher
+            <section class="legalBody card">
+              <p class="p" style="margin-top: 0">
+                Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Diese Datenschutzerklärung
+                informiert Sie darüber, welche Daten bei der Nutzung der ActiFly-App verarbeitet
+                werden und zu welchem Zweck.
+              </p>
 
-Verantwortlich für die Datenverarbeitung im Sinne der Datenschutz-Grundverordnung (DSGVO):
+              <h2 id="controller" class="legalH2">1. Verantwortlicher</h2>
+              <p class="legalP">
+                Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
+              </p>
+              <div class="legalBox">
+                <strong>ActiFly</strong><br />
+                E-Mail: <a href="mailto:support@actifly.app">support@actifly.app</a>
+              </div>
 
-ActiFly
-E-Mail: support@actifly.app
+              <h2 id="data" class="legalH2">2. Verarbeitete Daten</h2>
+              <p class="legalP">
+                Bei der Nutzung von ActiFly können folgende personenbezogene Daten verarbeitet werden:
+              </p>
 
-2. Verarbeitete Daten
+              <h3 id="data-account" class="legalH3">a) Konto- und Profildaten</h3>
+              <ul class="legalUl">
+                <li>E-Mail-Adresse</li>
+                <li>Benutzername</li>
+                <li>Profilfoto (optional)</li>
+                <li>Geburtsdatum</li>
+                <li>Geschlecht (optional)</li>
+              </ul>
 
-Bei der Nutzung von ActiFly können folgende personenbezogene Daten verarbeitet werden:
+              <h3 id="data-usage" class="legalH3">b) Nutzungs- und Kommunikationsdaten</h3>
+              <ul class="legalUl">
+                <li>Erstellte Aktivitäten</li>
+                <li>Teilnahmen an Aktivitäten</li>
+                <li>Chatnachrichten zwischen Nutzern</li>
+              </ul>
 
-a) Account- und Profildaten
+              <h3 id="data-location" class="legalH3">c) Standortdaten</h3>
+              <ul class="legalUl">
+                <li>Standortinformationen zur Anzeige von Aktivitäten in Ihrer Nähe</li>
+                <li>Standortfreigabe erfolgt nur mit Ihrer Zustimmung</li>
+              </ul>
 
-E-Mail-Adresse
-Benutzername
-Profilfoto (optional)
-Geburtsdatum
-Geschlecht (optional)
+              <h3 id="data-technical" class="legalH3">d) Technische Daten</h3>
+              <ul class="legalUl">
+                <li>Geräteinformationen</li>
+                <li>Nutzungsdaten der App (zur Fehleranalyse und Stabilität)</li>
+              </ul>
 
-b) Nutzungs- und Kommunikationsdaten
+              <h2 id="purpose" class="legalH2">3. Zweck der Datenverarbeitung</h2>
+              <ul class="legalUl">
+                <li>Bereitstellung und Betrieb der App</li>
+                <li>Erstellung und Verwaltung von Benutzerkonten</li>
+                <li>Organisation gemeinsamer Aktivitäten</li>
+                <li>Kommunikation zwischen Nutzern</li>
+                <li>Verbesserung von Funktionalität und Sicherheit</li>
+                <li>Verhinderung von Missbrauch und Betrug</li>
+              </ul>
 
-Erstellte Aktivitäten
-Teilnahmen an Aktivitäten
-Chatnachrichten zwischen Nutzern
+              <h2 id="legalbasis" class="legalH2">4. Rechtsgrundlage</h2>
+              <p class="legalP">
+                Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 DSGVO auf folgender Grundlage:
+              </p>
+              <ul class="legalUl">
+                <li>Einwilligung (z. B. Standortfreigabe)</li>
+                <li>Vertragserfüllung (Nutzung der App)</li>
+                <li>
+                  Berechtigtes Interesse (Sicherheit, Stabilität, Schutz vor Missbrauch)
+                </li>
+              </ul>
 
-c) Standortdaten
+              <h2 id="disclosure" class="legalH2">5. Weitergabe von Daten</h2>
+              <p class="legalP"><strong>Ihre Daten werden nicht verkauft.</strong></p>
+              <p class="legalP">
+                Wir nutzen folgende Dienstleister zur technischen Bereitstellung:
+              </p>
+              <ul class="legalUl">
+                <li>Supabase (Backend, Datenbank, Authentifizierung)</li>
+                <li>Google (bei Anmeldung über Google Login)</li>
+              </ul>
+              <p class="legalP">
+                Die Verarbeitung erfolgt innerhalb der EU oder unter DSGVO-konformen Garantien.
+              </p>
 
-Standortinformationen zur Anzeige von Aktivitäten in Ihrer Nähe
-Die Standortfreigabe erfolgt ausschließlich mit Ihrer Zustimmung
+              <h2 id="retention" class="legalH2">6. Speicherdauer</h2>
+              <p class="legalP">
+                Personenbezogene Daten werden nur so lange gespeichert, wie es für den jeweiligen
+                Zweck erforderlich ist oder gesetzlich vorgeschrieben wird.
+              </p>
+              <p class="legalP">
+                Nach Löschung Ihres Kontos werden Ihre Daten innerhalb eines angemessenen Zeitraums
+                entfernt, sofern keine gesetzlichen Pflichten entgegenstehen.
+              </p>
 
-d) Technische Daten
+              <h2 id="rights" class="legalH2">7. Ihre Rechte</h2>
+              <p class="legalP">Sie haben das Recht auf:</p>
+              <ul class="legalUl">
+                <li>Auskunft über gespeicherte Daten</li>
+                <li>Berichtigung unrichtiger Daten</li>
+                <li>Löschung Ihrer Daten</li>
+                <li>Einschränkung der Verarbeitung</li>
+                <li>Datenübertragbarkeit</li>
+                <li>Widerruf Ihrer Einwilligung</li>
+              </ul>
+              <p class="legalP">
+                Anfragen richten Sie bitte an:
+                <a href="mailto:support@actifly.app">support@actifly.app</a>
+              </p>
 
-Geräteinformationen
-App-Nutzungsdaten (zur Fehleranalyse und Stabilität)
+              <h2 id="minors" class="legalH2">8. Minderjährige</h2>
+              <p class="legalP">
+                Die Nutzung von ActiFly ist Personen unter <strong>16</strong> Jahren nicht gestattet.
+              </p>
 
-3. Zweck der Datenverarbeitung
+              <h2 id="changes" class="legalH2">9. Änderungen</h2>
+              <p class="legalP">
+                Diese Datenschutzerklärung kann aufgrund rechtlicher oder technischer Änderungen
+                angepasst werden.
+              </p>
 
-Die Verarbeitung Ihrer Daten erfolgt zu folgenden Zwecken:
+              <div class="legalBackTop">
+                <a
+                  href="#top"
+                  onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"
+                  >Nach oben ↑</a
+                >
+              </div>
+            </section>
+          </div>
+        </main>
 
-Bereitstellung und Betrieb der App
-Erstellung und Verwaltung von Nutzerkonten
-Anzeige und Organisation gemeinsamer Aktivitäten
-Kommunikation zwischen Nutzern
-Verbesserung der App-Funktionalität und Sicherheit
-Missbrauchs- und Betrugsprävention
-
-4. Rechtsgrundlagen
-
-Die Datenverarbeitung erfolgt gemäß Art. 6 Abs. 1 DSGVO auf folgenden Grundlagen:
-
-Einwilligung (z. B. Standortfreigabe)
-Vertragserfüllung (Nutzung der App)
-Berechtigtes Interesse (Sicherheit, Stabilität, Missbrauchsschutz)
-
-5. Weitergabe von Daten
-
-Ihre Daten werden nicht verkauft.
-
-Zur technischen Bereitstellung nutzen wir folgende Dienstleister:
-
-Supabase (Backend, Datenbank, Authentifizierung)
-Google (bei Anmeldung über Google-Login)
-
-Die Datenverarbeitung erfolgt innerhalb der EU oder gemäß DSGVO-konformen Garantien.
-
-6. Speicherdauer
-
-Personenbezogene Daten werden nur so lange gespeichert, wie dies für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.
-
-Bei Löschung Ihres Kontos werden Ihre personenbezogenen Daten innerhalb angemessener Frist gelöscht, sofern keine gesetzlichen Verpflichtungen entgegenstehen.
-
-7. Ihre Rechte
-
-Sie haben jederzeit das Recht auf:
-
-Auskunft über Ihre gespeicherten Daten
-Berichtigung unrichtiger Daten
-Löschung Ihrer Daten
-Einschränkung der Verarbeitung
-Datenübertragbarkeit
-Widerruf erteilter Einwilligungen
-
-Anfragen richten Sie bitte an: support@actifly.app
-
-8. Minderjährige
-
-Die Nutzung von ActiFly ist Personen unter 16 Jahren nicht gestattet.
-
-9. Änderungen
-
-Diese Datenschutzerklärung kann aktualisiert werden, um rechtliche oder technische Änderungen abzubilden.
-        </div>
-      </main>
-
-      <footer class="footer">
-        <span>© <span id="y"></span> ActiFly</span>
-        <span><a href="/de/legal/terms/" style="color:inherit">Nutzungsbedingungen</a></span>
-      </footer>
+        <footer class="footer">
+          <span>© <span id="y"></span> ActiFly</span>
+          <span>
+            <a href="/de/legal/terms/" style="color: inherit">Nutzungsbedingungen</a>
+            ·
+            <a href="/de/legal/privacy/" style="color: inherit">Datenschutz</a>
+          </span>
+        </footer>
+      </div>
     </div>
-  </div>
 
-  <script>document.getElementById("y").textContent = String(new Date().getFullYear());</script>
-  <script src="/app.js"></script>
-</body>
+    <script>
+      document.getElementById("y").textContent = String(new Date().getFullYear());
+    </script>
+    <script src="/app.js" defer></script>
+  </body>
 </html>

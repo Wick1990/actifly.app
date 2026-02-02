@@ -716,3 +716,11 @@ body::before{
 .legalBackTop{ margin-top:16px; }
 .legalBackTop a{ color:rgba(234,241,255,.80); text-decoration:none; font-weight:900; }
 .legalBackTop a:hover{ text-decoration:underline; }
+.legalBody a {
+  color: #4ade80; /* dein ActiFly Grün – kannst du anpassen */
+  text-decoration: none;
+}
+
+.legalBody a:hover {
+  text-decoration: underline;
+}
