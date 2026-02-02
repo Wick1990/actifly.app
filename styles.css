@@ -58,7 +58,7 @@
   --h3: 16px;
 
   --p: 18px;
-  --small: 13px;
+  --small: 15px;
 
   --lh-tight:1.10;
   --lh:1.65;
@@ -111,11 +111,18 @@ body::before{
   z-index:-1;
   opacity:.22;
   /* Tiny noise via repeating-radial trick (no external asset) */
+  body{
   background:
-    repeating-radial-gradient(circle at 20% 30%,
-      rgba(255,255,255,.06) 0 1px,
-      rgba(255,255,255,0) 1px 4px
-    );
+    radial-gradient(1200px 820px at 16% 22%, rgba(126,224,129,.20), transparent 60%),
+    radial-gradient(1200px 820px at 86% 28%, rgba(59,130,246,.20), transparent 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg2));
+}
+
+@media (min-width: 1024px){
+  body{
+    background-attachment: fixed;
+  }
+}
   mix-blend-mode: overlay;
 }
 
@@ -169,19 +176,20 @@ body::before{
 
 /* Divider: ultra-soft (no “hard line”) */
 .section--divider{
+  border-top: 0; /* kill hard line */
   position: relative;
 }
+
+/* Optional: statt Linie ein ultra-weicher Übergang */
 .section--divider::before{
   content:"";
   position:absolute;
-  top:0; left:0; right:0;
-  height:18px;
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,.035),
-    rgba(255,255,255,0)
-  );
-  opacity:.55;
+  left:0; right:0;
+  top:0;
+  height: 28px;
+  pointer-events:none;
+  background: transparent;
+  opacity: .35;
 }
 
 /* Section header pattern */
@@ -202,7 +210,7 @@ body::before{
   background:rgba(56,211,159,.10);
   color:rgba(234,241,255,.94);
   font-weight:var(--fw-black);
-  font-size:13px;
+  font-size:20px;
   width:fit-content;
 }
 
@@ -257,7 +265,7 @@ body::before{
 /* Wordmark bigger, but still premium */
 .brand .wm{
   height: 52px;
-  max-width:min(720px,80vw);
+  max-width:min(1080px,80vw);
 }
 @media (min-width: 1200px){
   .brand .wm{ height: 56px; }
@@ -347,7 +355,7 @@ body::before{
 
 .heroCard{
   border:1px solid var(--stroke2);
-  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.045));
+  background: linear-gradient(180deg, rgba(106, 96, 255, 0.244), rgba(99, 255, 193, 0.4));
   border-radius: var(--r-xl);
   padding:var(--s-5);
   box-shadow: var(--shadowMd);
@@ -391,7 +399,7 @@ body::before{
 }
 
 .btn--ghost{
-  background:rgba(255,255,255,.06);
+  background:rgba(12, 47, 206, 0.687);
   color:var(--text);
   border-color:rgba(255,255,255,.14);
 }
@@ -429,7 +437,7 @@ body::before{
   background: linear-gradient(180deg, rgba(56,211,159,.22), rgba(56,211,159,.10));
   color:rgba(234,241,255,.96);
   font-weight:var(--fw-black);
-  font-size:14px;
+  font-size:30px;
   box-shadow: 0 10px 30px rgba(56,211,159,.14);
 }
 
@@ -445,8 +453,9 @@ body::before{
 }
 
 .card--feature{
-  background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.045));
+  background: rgba(10,18,36,.58);
   border-color: rgba(255,255,255,.12);
+  box-shadow: var(--shadowSm);
 }
 
 .card--highlight{
@@ -468,7 +477,7 @@ body::before{
 
 /* Preview wrapper */
 .previewCard{
-  border:1px solid rgba(255,255,255,.12);
+  border:1px solid rgba(123, 255, 204, 0.12);
   background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.035));
   border-radius: var(--r-xl);
   padding: 16px;
