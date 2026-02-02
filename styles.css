@@ -217,9 +217,9 @@ body::before{
    Header / Nav (sticky)
 ================================= */
 .siteHeader .container {
-  max-width: 100%;
-  padding-left: 32px;
-  padding-right: 32px;
+  max-width: 80%;
+  padding-left: 48px;
+  padding-right: 48px;
 }
 
 .siteHeader{
