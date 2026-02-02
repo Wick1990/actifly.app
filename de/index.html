@@ -1,172 +1,304 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ActiFly – Activities on the fly</title>
-  <meta name="description" content="ActiFly verbindet Menschen über gemeinsame Aktivitäten – keine Dating-App." />
-  <link rel="canonical" href="https://actifly.app/de/" />
-  <link rel="stylesheet" href="/styles.css" />
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <meta name="theme-color" content="#07101e" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="ActiFly" />
-  <meta property="og:description" content="Aktivitäten finden – ohne Dating, ohne Druck." />
-  <meta property="og:url" content="https://actifly.app/de/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://actifly.app/assets/logo-light.png" />
+<title>ActiFly — Aktivitäten spontan erleben</title>
+<meta name="description" content="ActiFly verbindet Menschen durch gemeinsame Aktivitäten — ohne Dating, ohne Druck. Entdecken, teilnehmen und treffen."/>
+
+<link rel="manifest" href="/manifest.webmanifest"/>
+<link rel="icon" href="/assets/logo.webp"/>
+
+<meta property="og:title" content="ActiFly — Aktivitäten spontan erleben"/>
+<meta property="og:description" content="Verbinde dich durch Aktivitäten — ohne Dating, ohne Druck."/>
+<meta property="og:image" content="/assets/logo.webp"/>
+
+<link rel="stylesheet" href="/styles.css"/>
+
+<link rel="preload" as="image" href="/assets/wordmark.webp"/>
+<link rel="preload" as="image" href="/assets/logo.webp"/>
+<link rel="preload" as="image" href="/assets/logo-light.webp"/>
 </head>
 
 <body>
-  <div class="container">
-    <div class="shell">
-      <header class="topbar">
-        <div class="brand">
-          <div class="icon"><img src="/assets/icon.png" alt="ActiFly icon"></div>
-          <img class="wm" src="/assets/wordmark.png" alt="ActiFly wordmark">
-        </div>
+<a class="skipLink" href="#main">Zum Inhalt springen</a>
 
-        <nav class="nav">
-          <a href="/de/" data-i18n="nav_home"></a>
-          <a href="/de/how-it-works/" data-i18n="nav_how"></a>
-          <a href="/de/safety/" data-i18n="nav_safety"></a>
-          <a href="/de/faq/" data-i18n="nav_faq"></a>
-          <a href="/de/about/" data-i18n="nav_about"></a>
-          <a href="/de/contact/" data-i18n="nav_contact"></a>
-        </nav>
+<header class="siteHeader">
+<div class="container">
+<div class="topbar">
 
-        <div class="lang" aria-label="Language">
-          <button data-lang="de">DE</button>
-          <button data-lang="en">EN</button>
-          <button data-lang="fr">FR</button>
-          <button data-lang="lb">LU</button>
-          <button data-lang="nl">NL</button>
-          <button data-lang="es">ES</button>
-          <button data-lang="it">IT</button>
-          <button data-lang="pt">PT</button>
-        </div>
-      </header>
+<a class="brand" href="/de/" aria-label="ActiFly Startseite">
+<span class="icon">
+<img src="/assets/logo.webp" alt="" width="48" height="48"/>
+</span>
+<img class="wm" src="/assets/wordmark.webp" alt="ActiFly"/>
+</a>
 
-      <main class="main">
-        <div class="hero">
-          <div>
-            <div class="badge" data-i18n="coming_soon"></div>
-            <h1 class="h1" data-i18n="hero_title"></h1>
-            <p class="p" data-i18n="hero_sub"></p>
+<div class="navWrap">
+<nav class="nav">
+<a href="/de/" aria-current="page">Start</a>
+<a href="/de/how-it-works/">So funktioniert’s</a>
+<a href="/de/safety/">Sicherheit</a>
+<a href="/de/faq/">FAQ</a>
+<a href="/de/about/">Über uns</a>
+<a href="/de/contact/">Kontakt</a>
+</nav>
 
-            <div class="actions">
-              <!-- Coming-soon CTA: vorerst Mailto (später Waitlist-Form) -->
-              <a class="btn btnPrimary" href="mailto:support@actifly.app?subject=ActiFly%20Updates" data-i18n="cta_notify"></a>
-              <!-- später: Deep link / Store links -->
-              <a class="btn btnGhost" href="actifly://login" data-i18n="cta_open_app"></a>
-            </div>
+<div class="lang">
+<button data-lang="de">DE</button>
+<button data-lang="en">EN</button>
+<button data-lang="fr">FR</button>
+<button data-lang="lb">LU</button>
+<button data-lang="nl">NL</button>
+<button data-lang="es">ES</button>
+<button data-lang="it">IT</button>
+<button data-lang="pt">PT</button>
+</div>
+</div>
 
-            <div class="card" style="margin-top:14px">
-              <div class="h2" data-i18n="not_dating_title"></div>
-              <p class="small" data-i18n="not_dating_sub"></p>
-            </div>
-          </div>
+</div>
+</div>
+</header>
 
-          <div class="card">
-            <div class="h2">Preview</div>
-            <p class="small">
-              <section class="shotsSection">
-  <div class="shotsHeader">
-    <div>
-      <div class="h2">App Screenshots</div>
-      <p class="small">Tap to preview. (Register screen is square by design.)</p>
-    </div>
-    <div class="shotHint">Files: <code>/assets/screenshots/app/*.webp</code></div>
-  </div>
-
-  <div class="shotRail" aria-label="ActiFly screenshots">
-    <div class="shotCard" data-lightbox data-src="/assets/screenshots/app/01-splash.webp" data-title="Splash">
-      <div class="shotImgWrap"><img src="/assets/screenshots/app/01-splash.webp" alt="Splash screen" loading="lazy"></div>
-      <div class="shotLabel">01 · Splash</div>
-    </div>
-
-    <div class="shotCard" data-lightbox data-src="/assets/screenshots/app/02-login.webp" data-title="Login">
-      <div class="shotImgWrap"><img src="/assets/screenshots/app/02-login.webp" alt="Login screen" loading="lazy"></div>
-      <div class="shotLabel">02 · Login</div>
-    </div>
-
-    <div class="shotCard" data-lightbox data-src="/assets/screenshots/app/03-register.webp" data-title="Register">
-      <div class="shotImgWrap square"><img src="/assets/screenshots/app/03-register.webp" alt="Register screen" loading="lazy"></div>
-      <div class="shotLabel">03 · Register (1:1)</div>
-    </div>
-
-    <div class="shotCard" data-lightbox data-src="/assets/screenshots/app/04-home-feed.webp" data-title="Home Feed">
-      <div class="shotImgWrap"><img src="/assets/screenshots/app/04-home-feed.webp" alt="Home feed" loading="lazy"></div>
-      <div class="shotLabel">04 · Home Feed</div>
-    </div>
-
-    <div class="shotCard" data-lightbox data-src="/assets/screenshots/app/05-create-activity.webp" data-title="Create Activity">
-      <div class="shotImgWrap"><img src="/assets/screenshots/app/05-create-activity.webp" alt="Create activity" loading="lazy"></div>
-      <div class="shotLabel">05 · Create Activity</div>
-    </div>
-
-    <div class="shotCard" data-lightbox data-src="/assets/screenshots/app/06-activity-detail.webp" data-title="Activity Detail">
-      <div class="shotImgWrap"><img src="/assets/screenshots/app/06-activity-detail.webp" alt="Activity detail" loading="lazy"></div>
-      <div class="shotLabel">06 · Activity Detail</div>
-    </div>
-
-    <div class="shotCard" data-lightbox data-src="/assets/screenshots/app/07-map.webp" data-title="Map">
-      <div class="shotImgWrap"><img src="/assets/screenshots/app/07-map.webp" alt="Map" loading="lazy"></div>
-      <div class="shotLabel">07 · Map</div>
-    </div>
-
-    <div class="shotCard" data-lightbox data-src="/assets/screenshots/app/08-profile.webp" data-title="Profile">
-      <div class="shotImgWrap"><img src="/assets/screenshots/app/08-profile.webp" alt="Profile" loading="lazy"></div>
-      <div class="shotLabel">08 · Profile</div>
-    </div>
-
-    <div class="shotCard" data-lightbox data-src="/assets/screenshots/app/09-edit-profile.webp" data-title="Edit Profile">
-      <div class="shotImgWrap"><img src="/assets/screenshots/app/09-edit-profile.webp" alt="Edit profile" loading="lazy"></div>
-      <div class="shotLabel">09 · Edit Profile</div>
-    </div>
-
-    <div class="shotCard" data-lightbox data-src="/assets/screenshots/app/10-settings.webp" data-title="Settings">
-      <div class="shotImgWrap"><img src="/assets/screenshots/app/10-settings.webp" alt="Settings" loading="lazy"></div>
-      <div class="shotLabel">10 · Settings</div>
-    </div>
-  </div>
+<section class="section section--logo">
+<div class="container" style="text-align:center;">
+<img src="/assets/logo-light.webp" alt="ActiFly" style="max-width:520px;width:86%;height:auto;"/>
+</div>
 </section>
-            </p>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="section section--hero">
+<div class="container">
+<div class="hero">
+
+<div>
+<div class="kickerRow">
+<span class="badge">Demnächst verfügbar</span>
+<span class="small">Verbinde dich durch Aktivitäten — nicht durch Profile.</span>
+</div>
+
+<h1 class="h1">Finde Aktivitäten — ohne Dating, ohne Druck.</h1>
+<p class="p">
+ActiFly bringt Menschen zusammen, die etwas unternehmen wollen — spazieren gehen, Kaffee trinken, Gaming, Sport —
+und es einfach nicht allein tun möchten.
+</p>
+
+<div class="actions">
+<a class="btn btn--primary" href="/de/contact/">Updates erhalten</a>
+<a class="btn btn--ghost" href="/de/how-it-works/">So funktioniert’s</a>
+</div>
+</div>
+
+<aside class="heroCard">
+<h2 class="h2">Auf einen Blick</h2>
+<p class="small">Drei Schritte. Echte Menschen. Echte Aktivitäten.</p>
+
+<div class="grid3">
+<div class="card card--feature">
+<h3 class="h3">Entdecken</h3>
+<p class="small">Aktivitäten in deiner Nähe finden.</p>
+</div>
+<div class="card card--feature">
+<h3 class="h3">Teilnehmen</h3>
+<p class="small">Anfragen senden oder akzeptieren — ganz einfach.</p>
+</div>
+<div class="card card--feature">
+<h3 class="h3">Treffen</h3>
+<p class="small">Aktivität erleben. Kein peinliches Swipen.</p>
+</div>
+</div>
+</aside>
+
+</div>
+</div>
+</section>
+
+<!-- TRUST -->
+<section class="section section--divider">
+<div class="container">
+<h2 class="h2">Dies ist keine Dating-App.</h2>
+<p class="p">
+ActiFly wurde für Menschen entwickelt, die sich durch gemeinsame Erlebnisse verbinden möchten —
+mit klaren Erwartungen und respektvollem Umgang.
+</p>
+
+<div class="grid2">
+<div class="card card--info">
+<h3 class="h3">Aktivität zuerst</h3>
+<p class="small">Die Aktivität ist der Grund für die Verbindung — nicht endloses Profilscrollen.</p>
+</div>
+<div class="card card--info">
+<h3 class="h3">Kein Druck</h3>
+<p class="small">Kein Match-Spiel. Nur gemeinsame Interessen und klare Pläne.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section--divider">
+<div class="container">
+<h2 class="h2">Von „Das würde ich gern machen“ zu „Los geht’s“.</h2>
+<p class="p">Ein einfacher Ablauf vom Chat in die echte Welt.</p>
+
+<div class="grid3">
+<div class="card card--feature">
+<h3 class="h3">1) Entdecken</h3>
+<p class="small">Aktivitäten nach Kategorie, Ort und Stimmung finden.</p>
+</div>
+<div class="card card--feature">
+<h3 class="h3">2) Teilnehmen</h3>
+<p class="small">Anfragen senden oder andere einladen.</p>
+</div>
+<div class="card card--feature">
+<h3 class="h3">3) Treffen</h3>
+<p class="small">Aktivität erleben und natürlich Kontakte knüpfen.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SAFETY -->
+<section class="section section--divider">
+<div class="container">
+<h2 class="h2">Sicher und respektvoll.</h2>
+<p class="p">
+Klare Richtlinien, Melden und Blockieren — für ein angenehmes Miteinander.
+</p>
+
+<div class="grid3">
+<div class="card card--feature">
+<h3 class="h3">Melden & blockieren</h3>
+<p class="small">Unerwünschtes Verhalten schnell stoppen.</p>
+</div>
+<div class="card card--feature">
+<h3 class="h3">Regeln</h3>
+<p class="small">Einfache Vorgaben für klare Erwartungen.</p>
+</div>
+<div class="card card--feature">
+<h3 class="h3">Aktivitätsfokus</h3>
+<p class="small">Treffen mit Sinn — keine vagen Absichten.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PREVIEW -->
+<section class="section section--divider">
+<div class="container">
+<h2 class="h2">Ein kurzer Blick in die App.</h2>
+<p class="p">Ein kleiner Vorgeschmack — weitere Screens folgen näher zum Start.</p>
+<p class="small">Die gezeigten Screens stammen aus der aktuellen Entwicklungsversion und können sich noch ändern.</p>
+
+<div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+<p class="small">Tipp: Horizontal scrollen, ziehen oder die Pfeile nutzen.</p>
+<div style="display:flex; gap:10px;">
+              <button class="btn btn--ghost" type="button" id="shotsPrev" aria-label="Scroll screenshots left">←</button>
+              <button class="btn btn--ghost" type="button" id="shotsNext" aria-label="Scroll screenshots right">→</button>
+            </div>
+          </div>
+<div class="previewCard">
+<div class="shotRail shotRail--center" id="shotRail">
+
+<div class="shotCard">
+<div class="shotImgWrap">
+<img src="/assets/screenshots/app/01-splash.webp" alt="ActiFly Startbildschirm"/>
+</div>
+<div class="shotLabel">01 — Start</div>
+</div>
+
+<div class="shotCard">
+<div class="shotImgWrap">
+<img src="/assets/screenshots/app/04-home-feed.webp" alt="Startseite Feed"/>
+</div>
+<div class="shotLabel">04 — Feed</div>
+</div>
+
+<div class="shotCard">
+<div class="shotImgWrap">
+<img src="/assets/screenshots/app/07-map.webp" alt="Kartenansicht"/>
+</div>
+<div class="shotLabel">07 — Karte</div>
+</div>
+
+</div>
+</div>
+
+<div class="previewActions">
+<a class="btn btn--ghost" href="/de/how-it-works/">So funktioniert’s</a>
+<a class="btn btn--link" href="/de/contact/">Beta-Zugang anfragen</a>
+</div>
+
+</div>
+</section>
+
+<!-- FAQ SNIPPETS -->
+      <section class="section section--divider">
+        <div class="container">
+          <div class="sectionHeader">
+            <span class="eyebrow">FAQ</span>
+            <h2 class="h2">Schnelle Antworten.</h2>
+            <p class="p">Das Wesentliche - einfach erklärt.</p>
+          </div>
+
+          <div class="grid3">
+            <div class="card card--feature">
+              <h3 class="h3">Ist ActiFly eine Dating App?</h3>
+              <p class="small">Nein. Der Fokus liegt auf Aktivitäten, nicht auf Profilen.</p>
+            </div>
+            <div class="card card--feature">
+              <h3 class="h3">Muss ich Fremde treffen?</h3>
+              <p class="small">Du entscheidest selbst - mit klaren Regeln und einfachen Sicherheitstools.</p>
+            </div>
+            <div class="card card--feature">
+              <h3 class="h3">Wann startet Actifly?</h3>
+              <p class="small">Bald. Kontaktiere uns für Updates</p>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn--ghost" href="/en/faq/">FAQ's öffnen</a>
           </div>
         </div>
+      </section>
 
-        <div style="height:16px"></div>
-
-        <section class="grid3">
-          <div class="card">
-            <div class="h2" data-i18n="pillar1_t"></div>
-            <p class="small" data-i18n="pillar1_s"></p>
+      <!-- CTA -->
+      <section class="section section--divider">
+        <div class="container">
+          <div class="cta">
+            <div class="sectionHeader" style="margin-bottom: 12px;">
+              <h2 class="h2">Want early updates?</h2>
+              <p class="p">
+                ActiFly is launching soon. If you want to be informed about the beta, reach out anytime.
+              </p>
+            </div>
+            <div class="actions">
+              <a class="btn btn--primary" href="/en/contact/">Contact</a>
+              <a class="btn btn--ghost" href="mailto:support@actifly.app">support@actifly.app</a>
+            </div>
           </div>
-          <div class="card">
-            <div class="h2" data-i18n="pillar2_t"></div>
-            <p class="small" data-i18n="pillar2_s"></p>
-          </div>
-          <div class="card">
-            <div class="h2" data-i18n="pillar3_t"></div>
-            <p class="small" data-i18n="pillar3_s"></p>
-          </div>
-        </section>
-      </main>
+        </div>
+      </section>
+    </main>
 
-      <footer class="footer">
-        <span>© <span id="y"></span> ActiFly</span>
-        <span>
-          <a href="/de/legal/privacy/" style="color:inherit" data-i18n="legal_privacy"></a>
-          ·
-          <a href="/de/legal/terms/" style="color:inherit" data-i18n="legal_terms"></a>
-        </span>
-      </footer>
-    </div>
-  </div>
+<footer class="siteFooter">
+<div class="container">
+<div class="footer">
+<div>© <span id="year"></span> ActiFly</div>
+<div>
+<a href="/de/legal/privacy/">Datenschutz</a>
+<a href="/de/legal/terms/">AGB</a>
+</div>
+</div>
+</div>
+</footer>
 
-  <script>document.getElementById("y").textContent = String(new Date().getFullYear());</script>
-  <script src="/i18n.js"></script>
-  <script src="/app.js"></script>
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+<script src="/app.js" defer></script>
 </body>
 </html>

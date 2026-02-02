@@ -28,10 +28,12 @@ https://www.actifly.app/*   https://actifly.app/:splat   301
 # ===========================
 
 # ---- DE (currently only under-construction) ----
+/de/home/*                  /de/home/:splat    200
 /de/under-construction/*    /de/under-construction/:splat    200
 /de/*                       /de/under-construction/          302
 
 # ---- FR (currently only under-construction) ----
+/fr/home/*                  /fr/home/:splat    200
 /fr/under-construction/*    /fr/under-construction/:splat    200
 /fr/*                       /fr/under-construction/          302
 
@@ -44,6 +46,7 @@ https://www.actifly.app/*   https://actifly.app/:splat   301
 /it/*                       /it/under-construction/          302
 
 # ---- LB (currently only under-construction) ----
+/lb/home/*                  /lb/home/:splat    200
 /lb/under-construction/*    /lb/under-construction/:splat    200
 /lb/*                       /lb/under-construction/          302
 
