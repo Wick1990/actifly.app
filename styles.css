@@ -216,6 +216,12 @@ body::before{
 /* =================================
    Header / Nav (sticky)
 ================================= */
+.siteHeader .container {
+  max-width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
 .siteHeader{
   position:sticky;
   top:0;
