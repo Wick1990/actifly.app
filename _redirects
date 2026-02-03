@@ -29,6 +29,8 @@ https://www.actifly.app/*   https://actifly.app/:splat   301
 
 # ---- DE (currently only under-construction) ----
 /de/                        /de/                             200
+/de/legal/privacy/*         /de/legal/privacy/:splat         200
+/de/legal/terms/*           /de/legal/terms/:splat           200
 /de/under-construction/*    /de/under-construction/:splat    200
 /de/*                       /de/under-construction/          302
 
