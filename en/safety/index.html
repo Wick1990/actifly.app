@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Safety — ActiFly</title>
+    <meta
+      name="description"
+      content="Learn how ActiFly supports respectful and safe meetups with email verification, Google sign-in, reporting, blocking, and a clear moderation process."
+    />
+
+    <link rel="canonical" href="https://actifly.app/en/safety/" />
+
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/assets/logo.webp" />
+
+    <meta property="og:title" content="Safety — ActiFly" />
+    <meta
+      property="og:description"
+      content="Built for respectful and safe meetups — with clear tools, clear rules, and user control."
+    />
+    <meta property="og:image" content="/assets/logo.webp" />
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <link rel="preload" as="image" href="/assets/wordmark.webp" />
+    <link rel="preload" as="image" href="/assets/logo.webp" />
+    <link rel="preload" as="image" href="/assets/logo-light.webp" />
+
+    <style>
+      /* Page-only: Safety tool cards with icons */
+      .toolsGrid .toolCard {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .toolIconWrap{
+        flex: 0 0 auto;
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+        background: rgba(255,255,255,.04);
+        border: 1px solid rgba(255,255,255,.10);
+      }
+      .toolIconWrap img{
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        image-rendering: auto;
+      }
+      .toolText .h3{ margin-bottom: 6px; }
+      .toolText .small{ margin: 0; }
+
+      @media (max-width: 520px){
+        .toolsGrid .toolCard{ gap: 12px; }
+        .toolIconWrap{ width: 58px; height: 58px; border-radius: 16px; }
+        .toolIconWrap img{ width: 44px; height: 44px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skipLink" href="#main">Skip to content</a>
+
+    <!-- Header -->
+    <header class="siteHeader">
+      <div class="container">
+        <div class="topbar">
+          <a class="brand" href="/en/" aria-label="ActiFly home">
+            <span class="icon" aria-hidden="true">
+              <img src="/assets/logo.webp" alt="" width="48" height="48" decoding="async" />
+            </span>
+            <img class="wm" src="/assets/wordmark.webp" alt="ActiFly" decoding="async" />
+          </a>
+
+          <div class="navWrap">
+            <nav class="nav" aria-label="Primary">
+              <a href="/en/">Home</a>
+              <a href="/en/how-it-works/">How it works</a>
+              <a href="/en/safety/" aria-current="page">Safety</a>
+              <a href="/en/faq/">FAQ</a>
+              <a href="/en/about/">About</a>
+              <a href="/en/contact/">Contact</a>
+            </nav>
+
+            <div class="lang" aria-label="Language">
+              <button type="button" data-lang="de">DE</button>
+              <button type="button" data-lang="en">EN</button>
+              <button type="button" data-lang="fr">FR</button>
+              <button type="button" data-lang="lb">LU</button>
+              <button type="button" data-lang="nl">NL</button>
+              <button type="button" data-lang="es">ES</button>
+              <button type="button" data-lang="it">IT</button>
+              <button type="button" data-lang="pt">PT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Big logo (tight spacing) -->
+    <section class="section section--logo">
+      <div class="container" style="text-align: center;">
+        <div class="sectionHeader srOnly">
+          <h2 class="h2">Brand</h2>
+          <p class="p">ActiFly logo</p>
+        </div>
+
+        <img
+          src="/assets/logo-light.webp"
+          alt="ActiFly"
+          style="max-width: 520px; width: 86%; height: auto;"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="section section--hero">
+        <div class="container">
+          <div class="hero">
+            <div>
+              <div class="kickerRow">
+                <span class="badge">Safety</span>
+                <span class="small">Clear tools. Clear rules. Respectful meetups.</span>
+              </div>
+
+              <h1 class="h1">Built for respectful and safe meetups.</h1>
+              <p class="p">
+                ActiFly is designed to support respectful interactions — before, during, and after an activity.
+                You stay in control, and community rules stay clear.
+              </p>
+
+              <div class="actions" role="group" aria-label="Primary actions">
+                <a class="btn btn--primary" href="/en/faq/">Read FAQ</a>
+                <a class="btn btn--ghost" href="/en/contact/">Contact support</a>
+              </div>
+            </div>
+
+            <aside class="heroCard" aria-label="Safety overview">
+              <div class="sectionHeader" style="margin-bottom: 12px;">
+                <h2 class="h2">What “safety” means here</h2>
+                <p class="small">No fear marketing — just practical support and clear expectations.</p>
+              </div>
+
+              <div class="grid2">
+                <div class="card card--feature">
+                  <h3 class="h3">User control</h3>
+                  <p class="small">Block or report when something feels off — quickly and quietly.</p>
+                </div>
+                <div class="card card--feature">
+                  <h3 class="h3">Clear rules</h3>
+                  <p class="small">Moderation follows community guidelines and applicable laws.</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- SAFETY TOOLS -->
+      <section class="section section--divider" aria-label="Safety tools">
+        <div class="container">
+          <div class="sectionHeader">
+            <span class="eyebrow">Tools</span>
+            <h2 class="h2">Safety tools built into the app.</h2>
+            <p class="p">Simple features that help keep meetups respectful — without getting in the way.</p>
+          </div>
+
+          <div class="grid2 toolsGrid">
+            <div class="card card--info toolCard">
+              <div class="toolIconWrap" aria-hidden="true">
+                <img src="/assets/safety/email-verification.webp" alt="" width="120" height="120" decoding="async" />
+              </div>
+              <div class="toolText">
+                <h3 class="h3">Email verification</h3>
+                <p class="small">Ensures every account is tied to a real, verified email address.</p>
+              </div>
+            </div>
+
+            <div class="card card--info toolCard">
+              <div class="toolIconWrap" aria-hidden="true">
+                <img src="/assets/safety/google.webp" alt="" width="120" height="120" decoding="async" />
+              </div>
+              <div class="toolText">
+                <h3 class="h3">Google authentication</h3>
+                <p class="small">Optional sign-in with Google for an additional layer of account trust.</p>
+              </div>
+            </div>
+
+            <div class="card card--info toolCard">
+              <div class="toolIconWrap" aria-hidden="true">
+                <img src="/assets/safety/report-block.webp" alt="" width="120" height="120" decoding="async" />
+              </div>
+              <div class="toolText">
+                <h3 class="h3">Report &amp; block users</h3>
+                <p class="small">Block users or report inappropriate behavior directly inside the app.</p>
+              </div>
+            </div>
+
+            <div class="card card--info toolCard">
+              <div class="toolIconWrap" aria-hidden="true">
+                <img src="/assets/safety/moderation.webp" alt="" width="120" height="120" decoding="async" />
+              </div>
+              <div class="toolText">
+                <h3 class="h3">Moderation system</h3>
+                <p class="small">Reports are reviewed and handled according to clear community guidelines and in accordance with applicable laws.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="small" style="margin-top: 14px;">
+            Screens and features shown are from the current development version and may change before release.
+          </p>
+        </div>
+      </section>
+
+      <!-- PRINCIPLES -->
+      <section class="section section--divider" aria-label="Safety principles">
+        <div class="container">
+          <div class="sectionHeader">
+            <span class="eyebrow">Principles</span>
+            <h2 class="h2">Clear expectations for everyone.</h2>
+            <p class="p">Short, serious, and designed for real-life meetups.</p>
+          </div>
+
+          <div class="grid2">
+            <div class="card card--highlight">
+              <h3 class="h3">Respect first</h3>
+              <p class="small">Every interaction starts with mutual respect — online and in person.</p>
+            </div>
+
+            <div class="card card--highlight">
+              <h3 class="h3">No pressure</h3>
+              <p class="small">Participation is always voluntary — before, during, and after an activity.</p>
+            </div>
+
+            <div class="card card--highlight">
+              <h3 class="h3">Clear boundaries</h3>
+              <p class="small">Everyone can say no, leave, or disengage at any time — respectfully.</p>
+            </div>
+
+            <div class="card card--highlight">
+              <h3 class="h3">Community guidelines</h3>
+              <p class="small">Shared rules help keep activities fair, welcoming, and respectful.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section section--divider">
+        <div class="container">
+          <div class="cta">
+            <div class="sectionHeader" style="margin-bottom: 12px;">
+              <h2 class="h2">Have questions about safety?</h2>
+              <p class="p">Check the FAQ or reach out — we’re happy to help.</p>
+            </div>
+
+            <div class="actions">
+              <a class="btn btn--primary" href="/en/faq/">Read FAQ</a>
+              <a class="btn btn--ghost" href="/en/contact/">Contact support</a>
+              <a class="btn btn--link" href="mailto:support@actifly.app">support@actifly.app</a>
+            </div>
+
+            <p class="small" style="margin-top: 10px; margin-bottom: 0;">
+              We usually reply within 24–48 hours on business days.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="siteFooter">
+      <div class="container">
+        <div class="footer">
+          <div>© <span id="year"></span> ActiFly</div>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="/en/legal/privacy/">Privacy</a>
+            <a href="/en/legal/terms/">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

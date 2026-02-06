@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>How it works — ActiFly</title>
+    <meta
+      name="description"
+      content="Learn how ActiFly works in three simple steps: discover activities, join others, and meet in real life — without dating, without pressure."
+    />
+
+    <link rel="canonical" href="https://actifly.app/en/how-it-works/" />
+
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/assets/logo.webp" />
+
+    <meta property="og:title" content="How it works — ActiFly" />
+    <meta
+      property="og:description"
+      content="Discover activities, join others, and meet in real life — simple, respectful, and not a dating app."
+    />
+    <meta property="og:image" content="/assets/logo.webp" />
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <link rel="preload" as="image" href="/assets/wordmark.webp" />
+    <link rel="preload" as="image" href="/assets/logo.webp" />
+    <link rel="preload" as="image" href="/assets/logo-light.webp" />
+
+    <style>
+      /* Page-only layout (no global CSS change needed) */
+      .story {
+        display: grid;
+        grid-template-columns: 1.05fr .95fr;
+        gap: var(--s-6);
+        align-items: start;
+      }
+      .storyCopy {
+        position: sticky;
+        top: 110px; /* below sticky header */
+        min-height: calc(100vh - 150px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .storyCopy .panel { display: none; }
+      .storyCopy .panel.active { display: block; }
+
+      .storyShots {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-4);
+      }
+
+      /* Give each screenshot “anchor” spacing for nicer scroll + IO */
+      .storyShot { scroll-margin-top: 120px; }
+
+      /* Screenshot card should be full width inside story column */
+      .storyShots .shotCard { width: 100%; }
+
+      /* Subtle indicator */
+      .stepPills {
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+        margin-top: var(--s-4);
+      }
+      .pill {
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:8px 12px;
+        border-radius: var(--r-pill);
+        border:1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.04);
+        color: rgba(234,241,255,.86);
+        font-weight: 900;
+        font-size: 12px;
+      }
+      .pill.active {
+        border-color: rgba(56,211,159,.32);
+        background: rgba(56,211,159,.12);
+        color: var(--text);
+      }
+
+      @media (max-width: 980px){
+        .story { grid-template-columns: 1fr; }
+        .storyCopy {
+          position: static;
+          min-height: auto;
+          justify-content: flex-start;
+        }
+        .storyCopy .panel { display: block; }
+        .stepPills { display: none; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skipLink" href="#main">Skip to content</a>
+
+    <!-- Header -->
+    <header class="siteHeader">
+      <div class="container">
+        <div class="topbar">
+          <a class="brand" href="/en/" aria-label="ActiFly home">
+            <span class="icon" aria-hidden="true">
+              <img src="/assets/logo.webp" alt="" width="48" height="48" decoding="async" />
+            </span>
+            <img class="wm" src="/assets/wordmark.webp" alt="ActiFly" decoding="async" />
+          </a>
+
+          <div class="navWrap">
+            <nav class="nav" aria-label="Primary">
+              <a href="/en/">Home</a>
+              <a href="/en/how-it-works/" aria-current="page">How it works</a>
+              <a href="/en/safety/">Safety</a>
+              <a href="/en/faq/">FAQ</a>
+              <a href="/en/about/">About</a>
+              <a href="/en/contact/">Contact</a>
+            </nav>
+
+            <div class="lang" aria-label="Language">
+              <button type="button" data-lang="de">DE</button>
+              <button type="button" data-lang="en">EN</button>
+              <button type="button" data-lang="fr">FR</button>
+              <button type="button" data-lang="lb">LU</button>
+              <button type="button" data-lang="nl">NL</button>
+              <button type="button" data-lang="es">ES</button>
+              <button type="button" data-lang="it">IT</button>
+              <button type="button" data-lang="pt">PT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Big logo (tight spacing) -->
+    <section class="section section--logo">
+      <div class="container" style="text-align: center;">
+        <div class="sectionHeader srOnly">
+          <h2 class="h2">Brand</h2>
+          <p class="p">ActiFly logo</p>
+        </div>
+
+        <img
+          src="/assets/logo-light.webp"
+          alt="ActiFly"
+          style="max-width: 520px; width: 86%; height: auto;"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="section section--hero">
+        <div class="container">
+          <div class="hero">
+            <div>
+              <div class="kickerRow">
+                <span class="badge">How it works</span>
+                <span class="small">Three steps. Real people. Real activities.</span>
+              </div>
+
+              <h1 class="h1">From “I’d like to do that” to “Let’s go together”.</h1>
+              <p class="p">
+                ActiFly helps you discover activities, join others, and meet in real life — simple, respectful,
+                and focused on the activity.
+              </p>
+              <p class="small" style="margin-top: 10px;">
+                No swiping. No dating mechanics. Just clear plans.
+              </p>
+
+              <div class="actions" role="group" aria-label="Primary actions">
+                <a class="btn btn--primary" href="/en/safety/">Learn about safety</a>
+                <a class="btn btn--ghost" href="/en/contact/">Contact us</a>
+              </div>
+            </div>
+
+            <aside class="heroCard" aria-label="ActiFly flow overview">
+              <div class="sectionHeader" style="margin-bottom: 12px;">
+                <h2 class="h2">The flow</h2>
+                <p class="small">Scroll the screenshots — the explanation follows automatically.</p>
+              </div>
+
+              <div class="grid3">
+                <div class="card card--feature">
+                  <h3 class="h3">Discover</h3>
+                  <p class="small">Find nearby activities on the map and feed.</p>
+                </div>
+                <div class="card card--feature">
+                  <h3 class="h3">Join</h3>
+                  <p class="small">Request to join and coordinate with the group.</p>
+                </div>
+                <div class="card card--feature">
+                  <h3 class="h3">Meet</h3>
+                  <p class="small">Do the activity — the app steps back.</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 1 -->
+      <section class="section section--divider" aria-label="Step 1: Discover">
+        <div class="container">
+          <div class="sectionHeader">
+            <span class="eyebrow">Step 1</span>
+            <h2 class="h2">Discover activities that fit your day.</h2>
+            <p class="p">Browse what’s happening nearby — by category, distance, and time.</p>
+          </div>
+
+          <div class="story" data-story>
+            <!-- Copy (sticky) -->
+            <div class="storyCopy card card--info" aria-live="polite">
+              <div class="panel active" data-panel="s1-feed">
+                <h3 class="h3">Browse the feed</h3>
+                <ul class="legalUl" style="margin-top: 10px;">
+                  <li>See what’s happening nearby.</li>
+                  <li>Spot activities that match your interests and schedule.</li>
+                  <li>Open an activity to view details and participants.</li>
+                </ul>
+                <p class="small">Outcome: you know what’s happening and what to expect.</p>
+              </div>
+
+              <div class="panel" data-panel="s1-map">
+                <h3 class="h3">Switch to the map</h3>
+                <ul class="legalUl" style="margin-top: 10px;">
+                  <li>Discover activities visually around you.</li>
+                  <li>Quickly understand distance and location.</li>
+                  <li>Pick what fits your day with less guesswork.</li>
+                </ul>
+                <p class="small">Outcome: you find the right activity faster.</p>
+              </div>
+
+              <div class="stepPills" aria-hidden="true">
+                <span class="pill active" data-pill="s1-feed">Feed</span>
+                <span class="pill" data-pill="s1-map">Map</span>
+              </div>
+
+              <p class="small" style="margin-top: 14px;">
+                Screens shown are from the current development version and may change before release.
+              </p>
+            </div>
+
+            <!-- Shots (scroll) -->
+            <div class="storyShots">
+              <div class="storyShot" data-shot="s1-feed">
+                <div
+                  class="shotCard"
+                  data-lightbox
+                  data-src="/assets/screenshots/app/04-home-feed.webp"
+                  data-title="Discover — Home feed"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Open screenshot: Discover — Home feed"
+                >
+                  <div class="shotImgWrap">
+                    <img
+                      src="/assets/screenshots/app/04-home-feed.webp"
+                      alt="Home feed screen"
+                      loading="lazy"
+                      decoding="async"
+                      width="1080"
+                      height="1920"
+                    />
+                  </div>
+                  <div class="shotLabel">Discover — Home feed</div>
+                </div>
+              </div>
+
+              <div class="storyShot" data-shot="s1-map">
+                <div
+                  class="shotCard"
+                  data-lightbox
+                  data-src="/assets/screenshots/app/08-map.webp"
+                  data-title="Discover — Map"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Open screenshot: Discover — Map"
+                >
+                  <div class="shotImgWrap">
+                    <img
+                      src="/assets/screenshots/app/08-map.webp"
+                      alt="Map screen"
+                      loading="lazy"
+                      decoding="async"
+                      width="1080"
+                      height="1920"
+                    />
+                  </div>
+                  <div class="shotLabel">Discover — Map</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions" style="margin-top: 14px;">
+            <a class="btn btn--link" href="/en/contact/">Want beta updates? Contact us →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section class="section section--divider" aria-label="Step 2: Join">
+        <div class="container">
+          <div class="sectionHeader">
+            <span class="eyebrow">Step 2</span>
+            <h2 class="h2">Join and coordinate with clarity.</h2>
+            <p class="p">Request to join, check the details, and coordinate in chat — no awkward guessing.</p>
+          </div>
+
+          <div class="story" data-story>
+            <!-- Copy (sticky) -->
+            <div class="storyCopy card card--info" aria-live="polite">
+              <div class="panel active" data-panel="s2-detail">
+                <h3 class="h3">Open activity details</h3>
+                <ul class="legalUl" style="margin-top: 10px;">
+                  <li>Check time, place, and participation limits.</li>
+                  <li>See who’s already in.</li>
+                  <li>Request to join (or accept requests if you created it).</li>
+                </ul>
+                <p class="small">Outcome: you’re part of a real plan — not vague intentions.</p>
+              </div>
+
+              <div class="panel" data-panel="s2-chat">
+                <h3 class="h3">Coordinate in the activity chat</h3>
+                <ul class="legalUl" style="margin-top: 10px;">
+                  <li>Ask questions and clarify expectations.</li>
+                  <li>Confirm last details (meeting point, timing, etc.).</li>
+                  <li>Keep it simple and respectful.</li>
+                </ul>
+                <p class="small">Outcome: everyone knows what’s happening.</p>
+              </div>
+
+              <div class="stepPills" aria-hidden="true">
+                <span class="pill active" data-pill="s2-detail">Details</span>
+                <span class="pill" data-pill="s2-chat">Chat</span>
+              </div>
+
+              <p class="small" style="margin-top: 14px;">
+                Tip: click any screenshot for full size.
+              </p>
+            </div>
+
+            <!-- Shots (scroll) -->
+            <div class="storyShots">
+              <div class="storyShot" data-shot="s2-detail">
+                <div
+                  class="shotCard"
+                  data-lightbox
+                  data-src="/assets/screenshots/app/07-activity-detail-2.webp"
+                  data-title="Join — Activity details"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Open screenshot: Join — Activity details"
+                >
+                  <div class="shotImgWrap">
+                    <img
+                      src="/assets/screenshots/app/07-activity-detail-2.webp"
+                      alt="Activity detail screen"
+                      loading="lazy"
+                      decoding="async"
+                      width="1080"
+                      height="1920"
+                    />
+                  </div>
+                  <div class="shotLabel">Join — Activity details</div>
+                </div>
+              </div>
+
+              <div class="storyShot" data-shot="s2-chat">
+                <div
+                  class="shotCard"
+                  data-lightbox
+                  data-src="/assets/screenshots/app/12-chat.webp"
+                  data-title="Join — Chat"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Open screenshot: Join — Chat"
+                >
+                  <div class="shotImgWrap">
+                    <img
+                      src="/assets/screenshots/app/12-chat.webp"
+                      alt="Chat screen"
+                      loading="lazy"
+                      decoding="async"
+                      width="1080"
+                      height="1920"
+                    />
+                  </div>
+                  <div class="shotLabel">Join — Chat</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section class="section section--divider" aria-label="Step 3: Meet">
+        <div class="container">
+          <div class="sectionHeader">
+            <span class="eyebrow">Step 3</span>
+            <h2 class="h2">Meet in real life — the app stays in the background.</h2>
+            <p class="p">Do the activity together. Connections happen naturally through shared experiences.</p>
+          </div>
+
+          <div class="story" data-story>
+            <!-- Copy (sticky) -->
+            <div class="storyCopy card card--info" aria-live="polite">
+              <div class="panel active" data-panel="s3-meet">
+                <h3 class="h3">Show up with clear expectations</h3>
+                <ul class="legalUl" style="margin-top: 10px;">
+                  <li>The activity is the reason to meet — simple and clear.</li>
+                  <li>No pressure, no performative “dating vibe”.</li>
+                  <li>You can always leave or reschedule respectfully.</li>
+                </ul>
+                <p class="small">Outcome: real connections — without pressure.</p>
+              </div>
+
+              <div class="panel" data-panel="s3-profile">
+                <h3 class="h3">Profiles stay lightweight</h3>
+                <ul class="legalUl" style="margin-top: 10px;">
+                  <li>Interests and context — not dating bios.</li>
+                  <li>Less performance, more authenticity.</li>
+                  <li>Built to support meetups, not endless scrolling.</li>
+                </ul>
+                <p class="small">Outcome: the app helps you meet — then gets out of the way.</p>
+              </div>
+
+              <div class="stepPills" aria-hidden="true">
+                <span class="pill active" data-pill="s3-meet">Meet</span>
+                <span class="pill" data-pill="s3-profile">Profile</span>
+              </div>
+            </div>
+
+            <!-- Shots (scroll) -->
+            <div class="storyShots">
+              <div class="storyShot" data-shot="s3-meet">
+                <div class="card card--feature" style="padding: 16px;">
+                  <h3 class="h3" style="margin-bottom: 8px;">Meet</h3>
+                  <p class="small" style="margin: 0;">
+                    The most important screen is not a screen. ActiFly is designed to help you meet — then step back.
+                  </p>
+                </div>
+              </div>
+
+              <div class="storyShot" data-shot="s3-profile">
+                <div
+                  class="shotCard"
+                  data-lightbox
+                  data-src="/assets/screenshots/app/08-profile.webp"
+                  data-title="Meet — Profile"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Open screenshot: Meet — Profile"
+                >
+                  <div class="shotImgWrap">
+                    <img
+                    
+                      src="/assets/screenshots/app/09-profile.webp"
+                      alt="Profile screen"
+                      loading="lazy"
+                      decoding="async"
+                      width="1080"
+                      height="1920"
+                    />
+                  </div>
+                  <div class="shotLabel">Meet — Profile</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT YOU CAN DO -->
+      <section class="section section--divider">
+        <div class="container">
+          <div class="sectionHeader">
+            <span class="eyebrow">Features</span>
+            <h2 class="h2">What you can do in ActiFly.</h2>
+            <p class="p">Short, practical, and focused on the experience.</p>
+          </div>
+
+          <div class="grid2">
+            <div class="card card--info">
+              <h3 class="h3">Planning & discovery</h3>
+              <ul class="legalUl" style="margin-top: 10px;">
+                <li>Create activities with time, location, category, and limits.</li>
+                <li>Discover activities via map and feed.</li>
+                <li>Use filters to find what fits your schedule.</li>
+              </ul>
+            </div>
+
+            <div class="card card--info">
+              <h3 class="h3">Connection & safety</h3>
+              <ul class="legalUl" style="margin-top: 10px;">
+                <li>Activity-based group chats to coordinate.</li>
+                <li>Profiles with interests (context, not performance).</li>
+                <li>Built-in safety tools like reporting, blocking, and moderation.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOT DATING -->
+      <section class="section section--divider">
+        <div class="container">
+          <div class="sectionHeader">
+            <span class="eyebrow">Positioning</span>
+            <h2 class="h2">ActiFly is not a dating app.</h2>
+            <p class="p">
+              It’s designed for shared activities, hobbies, and social experiences — with clear expectations and respectful
+              interactions.
+            </p>
+          </div>
+
+          <div class="grid2">
+            <div class="card card--highlight">
+              <h3 class="h3">Activity-first</h3>
+              <p class="small">The activity is the reason to connect — not endless profile browsing.</p>
+            </div>
+            <div class="card card--highlight">
+              <h3 class="h3">Human, not performative</h3>
+              <p class="small">
+                If something more grows naturally, that’s human — but it’s never the goal of the platform.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section section--divider">
+        <div class="container">
+          <div class="cta">
+            <div class="sectionHeader" style="margin-bottom: 12px;">
+              <h2 class="h2">Ready to learn more?</h2>
+              <p class="p">Explore how we keep things respectful and safe — or reach out anytime.</p>
+            </div>
+
+            <div class="actions">
+              <a class="btn btn--primary" href="/en/safety/">Safety</a>
+              <a class="btn btn--ghost" href="/en/contact/">Contact</a>
+              <a class="btn btn--link" href="mailto:support@actifly.app">support@actifly.app</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="siteFooter">
+      <div class="container">
+        <div class="footer">
+          <div>© <span id="year"></span> ActiFly</div>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="/en/legal/privacy/">Privacy</a>
+            <a href="/en/legal/terms/">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Enable Enter/Space for any [data-lightbox] elements (a11y)
+      document.addEventListener("keydown", (e) => {
+        const el = e.target && e.target.closest ? e.target.closest("[data-lightbox]") : null;
+        if (!el) return;
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          el.click();
+        }
+      });
+
+      // Scroll-synced copy (IntersectionObserver)
+      (function () {
+        const stories = document.querySelectorAll("[data-story]");
+        if (!stories.length) return;
+
+        const setActive = (story, id) => {
+          const panels = story.querySelectorAll(".storyCopy .panel");
+          panels.forEach(p => p.classList.toggle("active", p.getAttribute("data-panel") === id));
+
+          const pills = story.querySelectorAll(".stepPills .pill");
+          pills.forEach(p => p.classList.toggle("active", p.getAttribute("data-pill") === id));
+        };
+
+        stories.forEach((story) => {
+          const shots = story.querySelectorAll(".storyShot[data-shot]");
+          if (!shots.length) return;
+
+          // Default to first
+          setActive(story, shots[0].getAttribute("data-shot"));
+
+          const io = new IntersectionObserver((entries) => {
+            // pick the most visible intersecting item
+            const visible = entries
+              .filter(e => e.isIntersecting)
+              .sort((a,b) => (b.intersectionRatio - a.intersectionRatio))[0];
+            if (!visible) return;
+
+            const id = visible.target.getAttribute("data-shot");
+            if (id) setActive(story, id);
+          }, {
+            root: null,
+            threshold: [0.35, 0.55, 0.75],
+          });
+
+          shots.forEach(s => io.observe(s));
+        });
+      })();
+    </script>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
