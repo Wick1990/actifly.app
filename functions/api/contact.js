@@ -37,11 +37,12 @@ ${message}
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: { address: "support@actifly.app", name: "ActiFly Support" },
+        from: { address: "support@actifly.app", name: "ActiFly Website Form" },
         to: [{ email_address: { address: "support@actifly.app", name: "ActiFly Support" } }],
         reply_to: [{ address: email }],
-        subject: subject ? `[${category}] ${subject}` : `[${category}] New contact request`,
-        textbody,
+        subject: subject
+  ? `[Website Form • ${category}] ${subject}`
+  : `[Website Form • ${category}] New contact request`,
       }),
     });
 
