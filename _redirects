@@ -78,5 +78,4 @@ https://www.actifly.app/*   https://actifly.app/:splat   301
 
 # Redirect unfinished EN sections
 /en/about/*                 /en/under-construction/          302
-/en/contact/*               /en/under-construction/          302
 /en/faq/*                   /en/under-construction/          302
