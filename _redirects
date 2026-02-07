@@ -71,11 +71,3 @@ https://www.actifly.app/*   https://actifly.app/:splat   301
 
 # Keep EN under-construction reachable
 /en/under-construction/*    /en/under-construction/:splat    200
-
-# Keep the finished legal pages reachable (defensive; first match wins)
-/en/legal/privacy/*         /en/legal/privacy/:splat         200
-/en/legal/terms/*           /en/legal/terms/:splat           200
-
-# Redirect unfinished EN sections
-/en/about/*                 /en/under-construction/          302
-/en/faq/*                   /en/under-construction/          302

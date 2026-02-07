@@ -1,13 +1,280 @@
-<div class="faq">
-  <div class="faqItem" data-open="false">
-    <button class="faqQ" type="button" aria-expanded="false">
-      Is this a dating app?
-      <span class="small">+</span>
-    </button>
-    <div class="faqA">
-      ActiFly is activity-first. You connect around a shared plan, not profile swiping.
-    </div>
-  </div>
-</div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<script src="/faq.js" defer></script>
+    <title>FAQ — ActiFly</title>
+    <meta
+      name="description"
+      content="Frequently asked questions about ActiFly. Learn how it works, how safe it is, and what it’s for."
+    />
+
+    <link rel="canonical" href="https://actifly.app/en/faq/" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/assets/logo.webp" />
+
+    <meta property="og:title" content="FAQ — ActiFly" />
+    <meta
+      property="og:description"
+      content="Clear answers about ActiFly, safety, and how everything works."
+    />
+    <meta property="og:image" content="/assets/logo.webp" />
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <style>
+      /* FAQ Accordion */
+      .faq {
+        max-width: 860px;
+        margin: 0 auto;
+      }
+      .faq details {
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 16px;
+        padding: 14px 18px;
+        background: rgba(0,0,0,.08);
+        position: relative;
+  padding-right: 28px;
+      }
+      .faq details + details {
+        margin-top: 12px;
+      }
+      .faq details[open] summary::after {
+  transform: translateY(-50%) rotate(90deg);
+  opacity: 1;
+}
+      .faq summary::after {
+  content: "›";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  font-size: 22px;
+  opacity: 0.6;
+  transition: transform .2s ease, opacity .2s ease;
+}
+      .faq summary {
+        cursor: pointer;
+        list-style: none;
+        font-weight: 600;
+        font-size: 18px;
+      }
+      .faq summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq .answer {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skipLink" href="#main">Skip to content</a>
+
+    <!-- Header -->
+    <header class="siteHeader">
+      <div class="container">
+        <div class="topbar">
+          <a class="brand" href="/en/" aria-label="ActiFly home">
+            <span class="icon" aria-hidden="true">
+              <img src="/assets/logo.webp" alt="" width="48" height="48" decoding="async" />
+            </span>
+            <img class="wm" src="/assets/wordmark.webp" alt="ActiFly" decoding="async" />
+          </a>
+
+          <div class="navWrap">
+            <nav class="nav" aria-label="Primary">
+              <a href="/en/">Home</a>
+              <a href="/en/how-it-works/">How it works</a>
+              <a href="/en/safety/">Safety</a>
+              <a href="/en/faq/" aria-current="page">FAQ</a>
+              <a href="/en/about/">About</a>
+              <a href="/en/contact/">Contact</a>
+            </nav>
+
+            <div class="lang" aria-label="Language">
+              <button type="button" data-lang="de">DE</button>
+              <button type="button" data-lang="en">EN</button>
+              <button type="button" data-lang="fr">FR</button>
+              <button type="button" data-lang="lb">LU</button>
+              <button type="button" data-lang="nl">NL</button>
+              <button type="button" data-lang="es">ES</button>
+              <button type="button" data-lang="it">IT</button>
+              <button type="button" data-lang="pt">PT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Logo -->
+    <section class="section section--logo">
+      <div class="container" style="text-align:center;">
+        <img
+          src="/assets/logo-light.webp"
+          alt="ActiFly"
+          style="max-width:520px;width:86%;height:auto;"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="section section--hero">
+        <div class="container">
+          <div class="hero hero--center">
+            <div>
+              <div class="kickerRow">
+                <span class="badge">FAQ</span>
+              </div>
+
+              <h1 class="h1">Your questions – answered.</h1>
+              <p class="p">
+                Clear answers about ActiFly, how it works, and what to expect.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section section--divider">
+        <div class="container">
+          <div class="faq">
+
+            <details open>
+              <summary>Is ActiFly a dating app?</summary>
+              <div class="answer">
+                <p class="p">
+                  No. ActiFly is not a dating app.
+                  It’s designed for shared activities, hobbies, and real-world meetups — without romantic pressure or dating mechanics.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>What can I use ActiFly for?</summary>
+              <div class="answer">
+                <p class="p">
+                  You can discover activities near you, join others for shared experiences,
+                  or create your own activities — from walks and sports to games or local events.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Is ActiFly free to use?</summary>
+              <div class="answer">
+                <p class="p">
+                  Yes. ActiFly is free to use.
+                  Optional features may be added in the future, but the core experience will remain accessible.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Who can create activities?</summary>
+              <div class="answer">
+                <p class="p">
+                  Any verified user can create activities.
+                  Activities include clear details such as time, location, category, and participant limits.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>How safe is ActiFly?</summary>
+              <div class="answer">
+                <p class="p">
+                  ActiFly includes multiple safety features such as email verification,
+                  Google authentication, reporting and blocking tools, and a moderation system.
+                </p>
+                <p class="p">
+                  You can learn more on our <a href="/en/safety/">Safety page</a>.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Can I block or report users?</summary>
+              <div class="answer">
+                <p class="p">
+                  Yes. You can block users at any time, which immediately removes contact.
+                  Reports are reviewed according to clear community rules.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>How does moderation work?</summary>
+              <div class="answer">
+                <p class="p">
+                  Reports are reviewed carefully and handled according to community guidelines
+                  and applicable laws. Decisions are based on clear rules, not personal opinions.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Is my data protected?</summary>
+              <div class="answer">
+                <p class="p">
+                  Only necessary data is collected.
+                  Contact details are not shared publicly, and your data is handled in accordance with privacy laws.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Is there an age limit?</summary>
+              <div class="answer">
+                <p class="p">
+                  Yes. You must be at least 16 years old to use ActiFly.
+                </p>
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section section--divider">
+        <div class="container">
+          <div class="cta">
+            <div class="sectionHeader" style="margin-bottom:12px;">
+              <h2 class="h2">Still have questions?</h2>
+              <p class="p">We’re happy to help.</p>
+            </div>
+
+            <div class="actions">
+              <a class="btn btn--primary" href="/en/contact/">Contact us</a>
+              <a class="btn btn--ghost" href="/en/">Back home</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="siteFooter">
+      <div class="container">
+        <div class="footer">
+          <div>© <span id="year"></span> ActiFly</div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a href="/en/legal/privacy/">Privacy</a>
+            <a href="/en/legal/terms/">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
