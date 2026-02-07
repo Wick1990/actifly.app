@@ -47,6 +47,78 @@
       .contactHint {
         margin-top: 10px;
         text-align: center;
+        min-height: 20px;
+      }
+
+      /* Attachment preview */
+      .attachBox {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        padding: 10px 12px;
+        background: rgba(0, 0, 0, 0.08);
+      }
+      .attachList {
+        list-style: none;
+        padding: 0;
+        margin: 8px 0 0;
+        display: grid;
+        gap: 8px;
+      }
+      .attachItem {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 13px;
+        opacity: 0.95;
+      }
+      .attachLeft {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+      .attachName {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 260px;
+      }
+      .attachMeta {
+        opacity: 0.75;
+        white-space: nowrap;
+      }
+      .attachNote {
+        margin-top: 6px;
+        opacity: 0.75;
+        font-size: 12px;
+      }
+      .attachWarn {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #ffd38a;
+      }
+
+      /* Remove button (uses your existing button styling vibe, but local) */
+      .btnMini {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(0, 0, 0, 0.14);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 12px;
+        cursor: pointer;
+        color: inherit;
+        transition: transform 0.08s ease, background 0.15s ease;
+      }
+      .btnMini:hover {
+        background: rgba(0, 0, 0, 0.22);
+      }
+      .btnMini:active {
+        transform: translateY(1px);
+      }
+      .btnMini:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
       }
     </style>
   </head>
@@ -90,7 +162,7 @@
       </div>
     </header>
 
-    <!-- Big logo (tight spacing like other pages) -->
+    <!-- Big logo -->
     <section class="section section--logo">
       <div class="container" style="text-align: center;">
         <div class="sectionHeader srOnly">
@@ -108,7 +180,7 @@
     </section>
 
     <main id="main">
-      <!-- HERO (match other pages: left text, right heroCard) -->
+      <!-- HERO -->
       <section class="section section--hero">
         <div class="container">
           <div class="hero">
@@ -128,6 +200,29 @@
               <div class="actions" role="group" aria-label="Primary actions">
                 <a class="btn btn--primary" href="/en/faq/">Read FAQ</a>
                 <a class="btn btn--ghost" href="mailto:support@actifly.app">Email us</a>
+              </div>
+
+              <!-- WHAT TO INCLUDE -->
+              <div class="sectionHeader" style="margin-top: 22px; margin-bottom: 10px;">
+                <h2 class="h2" style="font-size: 22px;">What to include</h2>
+                <p class="p">This helps us respond faster and more accurately.</p>
+              </div>
+
+              <div class="grid3">
+                <div class="card card--feature">
+                  <h3 class="h3">Your question</h3>
+                  <p class="small">Describe what you need help with or what you’d like to know.</p>
+                </div>
+
+                <div class="card card--feature">
+                  <h3 class="h3">Device & app version</h3>
+                  <p class="small">Especially useful if you’re reporting a technical issue.</p>
+                </div>
+
+                <div class="card card--feature">
+                  <h3 class="h3">Screenshots (optional)</h3>
+                  <p class="small">Visual context can help us understand the issue quicker.</p>
+                </div>
               </div>
             </div>
 
@@ -166,8 +261,29 @@
                   <textarea class="input" id="message" name="message" rows="5" required></textarea>
                 </div>
 
+                <div class="field">
+                  <label class="label" for="attachments">Attachments (optional)</label>
+                  <input
+                    class="input"
+                    id="attachments"
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp,application/pdf"
+                    multiple
+                  />
+
+                  <div class="attachBox" style="margin-top: 8px;">
+                    <div class="small" style="margin: 0;">
+                      Up to 3 files. Max 5 MB each. (PNG/JPG/WEBP/PDF)
+                    </div>
+
+                    <ul id="attachList" class="attachList" aria-live="polite"></ul>
+                    <div id="attachSummary" class="attachNote"></div>
+                    <div id="attachWarning" class="attachWarn" role="status"></div>
+                  </div>
+                </div>
+
                 <div class="actions">
-                  <button class="btn btn--primary" type="submit">Send message</button>
+                  <button id="submitBtn" class="btn btn--primary" type="submit">Send message</button>
                 </div>
 
                 <p id="formStatus" class="small contactHint" aria-live="polite"></p>
@@ -181,35 +297,155 @@
         window.addEventListener("DOMContentLoaded", () => {
           const form = document.getElementById("contactForm");
           const status = document.getElementById("formStatus");
-          if (!form || !status) return;
+          const fileInput = document.getElementById("attachments");
+          const attachList = document.getElementById("attachList");
+          const attachSummary = document.getElementById("attachSummary");
+          const attachWarning = document.getElementById("attachWarning");
+          const submitBtn = document.getElementById("submitBtn");
+
+          if (!form || !status || !fileInput || !attachList || !attachSummary || !attachWarning || !submitBtn) return;
+
+          const MAX_FILES = 3;
+          const MAX_MB = 5;
+          const MAX_BYTES = MAX_MB * 1024 * 1024;
+
+          /** We keep our own list because input.files is read-only */
+          let selectedFiles = [];
+
+          function fmtBytes(bytes) {
+            const mb = bytes / (1024 * 1024);
+            return `${mb.toFixed(mb >= 10 ? 0 : 1)} MB`;
+          }
+
+          function escapeHtml(str) {
+            return String(str)
+              .replaceAll("&", "&amp;")
+              .replaceAll("<", "&lt;")
+              .replaceAll(">", "&gt;")
+              .replaceAll('"', "&quot;")
+              .replaceAll("'", "&#039;");
+          }
+
+          function validateFiles(files) {
+            const tooMany = files.length > MAX_FILES;
+            const tooLarge = files.some((f) => f.size > MAX_BYTES);
+            return { tooMany, tooLarge };
+          }
+
+          function renderFiles() {
+            attachList.innerHTML = "";
+            attachWarning.textContent = "";
+            attachSummary.textContent = "";
+
+            if (!selectedFiles.length) return;
+
+            let total = selectedFiles.reduce((sum, f) => sum + f.size, 0);
+            const { tooMany, tooLarge } = validateFiles(selectedFiles);
+
+            selectedFiles.forEach((f, idx) => {
+              const li = document.createElement("li");
+              li.className = "attachItem";
+              li.innerHTML = `
+                <div class="attachLeft">
+                  <span class="attachName" title="${escapeHtml(f.name)}">${escapeHtml(f.name)}</span>
+                  <span class="attachMeta">${fmtBytes(f.size)}</span>
+                </div>
+                <button type="button" class="btnMini" data-remove="${idx}" aria-label="Remove ${escapeHtml(f.name)}">
+                  Remove
+                </button>
+              `;
+              attachList.appendChild(li);
+            });
+
+            attachSummary.textContent = `Selected: ${selectedFiles.length} file(s) • Total: ${fmtBytes(total)}`;
+
+            if (tooMany) {
+              attachWarning.textContent = `Too many files. Please keep it to ${MAX_FILES} max.`;
+            } else if (tooLarge) {
+              attachWarning.textContent = `One or more files exceed ${MAX_MB} MB. Please compress or remove them.`;
+            }
+          }
+
+          function addFiles(newOnes) {
+            // merge while keeping order; also avoid duplicates by name+size+lastModified
+            const merged = [...selectedFiles];
+            for (const f of newOnes) {
+              const key = `${f.name}|${f.size}|${f.lastModified}`;
+              const exists = merged.some((x) => `${x.name}|${x.size}|${x.lastModified}` === key);
+              if (!exists) merged.push(f);
+            }
+            selectedFiles = merged;
+          }
+
+          fileInput.addEventListener("change", () => {
+            const picked = fileInput.files ? Array.from(fileInput.files) : [];
+            addFiles(picked);
+
+            // reset the input so user can re-pick the same file if they removed it
+            fileInput.value = "";
+            renderFiles();
+          });
+
+          attachList.addEventListener("click", (e) => {
+            const btn = e.target.closest("button[data-remove]");
+            if (!btn) return;
+            const idx = Number(btn.getAttribute("data-remove"));
+            if (Number.isNaN(idx)) return;
+
+            selectedFiles.splice(idx, 1);
+            renderFiles();
+          });
 
           form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
+            const { tooMany, tooLarge } = validateFiles(selectedFiles);
+            if (tooMany) {
+              status.textContent = `Please attach up to ${MAX_FILES} files max.`;
+              return;
+            }
+            if (tooLarge) {
+              status.textContent = `One or more files are larger than ${MAX_MB} MB.`;
+              return;
+            }
+
             status.textContent = "Sending…";
+            submitBtn.disabled = true;
 
-            const data = Object.fromEntries(new FormData(form));
+            // Build FormData manually (so we can include our selectedFiles list)
+            const fd = new FormData();
+            fd.append("email", form.email.value);
+            fd.append("category", form.category.value);
+            fd.append("subject", form.subject.value);
+            fd.append("message", form.message.value);
+
+            for (const f of selectedFiles) {
+              fd.append("attachments", f, f.name);
+            }
+
             let res, text;
-
             try {
-              res = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-              });
+              res = await fetch("/api/contact", { method: "POST", body: fd });
               text = await res.text();
             } catch (err) {
               status.textContent = "Network error. Please try again.";
+              submitBtn.disabled = false;
               return;
             }
 
             if (res.ok) {
               status.textContent = "Message sent successfully ✔";
               form.reset();
+              selectedFiles = [];
+              renderFiles();
             } else {
               status.textContent = `Error (${res.status}): ${text || "Please try again."}`;
             }
+
+            submitBtn.disabled = false;
           });
+
+          renderFiles();
         });
       </script>
 
@@ -232,33 +468,6 @@
               <p class="small" style="margin-top: 12px;">
                 We usually reply within 24–48 hours on business days.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- WHAT TO INCLUDE -->
-      <section class="section section--divider">
-        <div class="container">
-          <div class="sectionHeader">
-            <h2 class="h2">What to include in your message</h2>
-            <p class="p">This helps us respond faster and more accurately.</p>
-          </div>
-
-          <div class="grid3">
-            <div class="card card--feature">
-              <h3 class="h3">Your question</h3>
-              <p class="small">Describe what you need help with or what you’d like to know.</p>
-            </div>
-
-            <div class="card card--feature">
-              <h3 class="h3">Device & app version</h3>
-              <p class="small">Especially useful if you’re reporting a technical issue.</p>
-            </div>
-
-            <div class="card card--feature">
-              <h3 class="h3">Screenshots (optional)</h3>
-              <p class="small">Visual context can help us understand the issue quicker.</p>
             </div>
           </div>
         </div>
