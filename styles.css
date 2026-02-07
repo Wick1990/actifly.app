@@ -743,3 +743,28 @@ body::before{
 .contactForm .input {
   width: 100%;
 }
+/* About – Who we are */
+.who {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.whoAvatar img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  border-radius: 16px; /* leicht, nicht rund */
+}
+
+@media (max-width: 640px) {
+  .who {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .whoAvatar img {
+    margin: 0 auto;
+  }
+}
