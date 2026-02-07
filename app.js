@@ -169,6 +169,7 @@
     initLangButtons();
     initLightbox();
     initShotRails();
+    initBeta();
   }
 
   if (document.readyState === "loading") {
@@ -176,4 +177,97 @@
   } else {
     boot();
   }
+    /* ===========================
+     Beta signup + live stats
+  ============================ */
+
+  function initBeta() {
+    const form = document.getElementById("betaForm");
+    const msg = document.getElementById("betaMsg");
+    if (!form || !msg) return;
+
+    const quotas = { android: 34, ios: 33, google: 33, total: 100 };
+
+    // Set max labels
+    const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = String(v); };
+    setText("betaAndroidMax", quotas.android);
+    setText("betaiOSMax", quotas.ios);
+    setText("betaGoogleMax", quotas.google);
+    setText("betaTotalMax", quotas.total);
+
+    const setBar = (barId, value, max) => {
+      const el = document.getElementById(barId);
+      if (!el) return;
+      const pct = max > 0 ? Math.max(0, Math.min(100, (value / max) * 100)) : 0;
+      el.style.width = pct.toFixed(1) + "%";
+    };
+
+    async function refreshStats() {
+      try {
+        const r = await fetch("/api/beta-stats", { cache: "no-store" });
+        const data = await r.json();
+        if (!data?.ok) return;
+
+        const c = data.counts || {};
+        setText("betaAndroid", c.android ?? 0);
+        setText("betaiOS", c.ios ?? 0);
+        setText("betaGoogle", c.google ?? 0);
+        setText("betaTotal", c.total ?? 0);
+
+        setBar("betaAndroidBar", c.android ?? 0, quotas.android);
+        setBar("betaiOSBar", c.ios ?? 0, quotas.ios);
+        setBar("betaGoogleBar", c.google ?? 0, quotas.google);
+        setBar("betaTotalBar", c.total ?? 0, quotas.total);
+      } catch {
+        // silently ignore
+      }
+    }
+
+    function setMsg(text, ok) {
+      msg.textContent = text;
+      msg.className = "formMsg " + (ok ? "ok" : "err");
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const fd = new FormData(form);
+      const email = String(fd.get("email") || "").trim();
+      const category = String(fd.get("category") || "").trim();
+
+      if (!email || !category) {
+        setMsg("Please enter an email and select a category.", false);
+        return;
+      }
+
+      setMsg("Submitting…", true);
+
+      try {
+        const res = await fetch("/api/beta-signup", { method: "POST", body: fd });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok) {
+          setMsg("You’re on the list. We’ll email you when the beta starts.", true);
+          form.reset();
+          await refreshStats();
+          return;
+        }
+
+        if (res.status === 409 && data?.full) {
+          setMsg("Beta list is full — thanks! Please email support@actifly.app and we’ll keep you posted.", false);
+          await refreshStats();
+          return;
+        }
+
+        setMsg(data?.error || "Something went wrong. Please try again.", false);
+      } catch {
+        setMsg("Network error. Please try again.", false);
+      }
+    });
+
+    // initial load + periodic refresh (optional)
+    refreshStats();
+    setInterval(refreshStats, 30_000);
+  }
+
 })();

@@ -313,6 +313,86 @@
         </div>
       </section>
 
+      <!-- BETA CTA -->
+<section class="section section--divider" id="beta">
+  <div class="container">
+    <div class="cta">
+      <div class="sectionHeader" style="margin-bottom: 12px;">
+        <h2 class="h2">Join the ActiFly Beta</h2>
+        <p class="p">
+          We’re looking for up to <strong>100 beta testers</strong>. Choose your category and get notified by email when the beta goes live.
+        </p>
+        <p class="small" style="margin-top:6px;">
+          We’ll only use your email for beta updates. No spam. No nonsense. 🙂
+        </p>
+      </div>
+      
+      <!-- Form -->
+      <form class="betaForm" id="betaForm" novalidate>
+        <label class="srOnly" for="betaEmail">Email</label>
+        <input class="input" id="betaEmail" name="email" type="email" autocomplete="email" placeholder="Your email address" required />
+
+        <label class="srOnly" for="betaCategory">Category</label>
+        <select class="select" id="betaCategory" name="category" required>
+          <option value="">Choose category…</option>
+          <option value="android">Android (Email)</option>
+          <option value="ios">iOS (Email)</option>
+          <option value="google">Google login</option>
+        </select>
+
+        <label class="checkRow">
+          <input type="checkbox" name="consent" required />
+          <span class="small">
+            I agree to be contacted for beta updates. See <a href="/en/legal/privacy/">Privacy</a>.
+          </span>
+        </label>
+
+        <div class="actions" style="margin-top: 6px;">
+          <button class="btn btn--primary" type="submit">Join beta list</button>
+          <a class="btn btn--ghost" href="mailto:support@actifly.app">support@actifly.app</a>
+        </div>
+
+        <div class="formMsg" id="betaMsg" aria-live="polite"></div>
+      </form>
+      
+      <!-- Slots -->
+      <div class="betaSlots" aria-label="Beta slots">
+        <div class="betaSlot">
+          <div class="betaSlotTop">
+            <div class="h3" style="margin:0;">Android (Email)</div>
+            <div class="small"><span id="betaAndroid">0</span> / <span id="betaAndroidMax">34</span> filled</div>
+          </div>
+          <div class="betaBar"><div class="betaBarFill" id="betaAndroidBar" style="width:0%"></div></div>
+        </div>
+
+        <div class="betaSlot">
+          <div class="betaSlotTop">
+            <div class="h3" style="margin:0;">iOS (Email)</div>
+            <div class="small"><span id="betaiOS">0</span> / <span id="betaiOSMax">33</span> filled</div>
+          </div>
+          <div class="betaBar"><div class="betaBarFill" id="betaiOSBar" style="width:0%"></div></div>
+        </div>
+
+        <div class="betaSlot">
+          <div class="betaSlotTop">
+            <div class="h3" style="margin:0;">Google login</div>
+            <div class="small"><span id="betaGoogle">0</span> / <span id="betaGoogleMax">33</span> filled</div>
+          </div>
+          <div class="betaBar"><div class="betaBarFill" id="betaGoogleBar" style="width:0%"></div></div>
+        </div>
+
+        <div class="betaSlot betaSlot--total">
+          <div class="betaSlotTop">
+            <div class="h3" style="margin:0;">Total</div>
+            <div class="small"><span id="betaTotal">0</span> / <span id="betaTotalMax">100</span> filled</div>
+          </div>
+          <div class="betaBar"><div class="betaBarFill" id="betaTotalBar" style="width:0%"></div></div>
+        </div>
+      </div>      
+    </div>
+  </div>
+</section>
+
       <!-- FAQ SNIPPETS -->
       <section class="section section--divider">
         <div class="container">

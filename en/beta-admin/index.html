@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Beta Admin — ActiFly</title>
+    <meta name="robots" content="noindex,nofollow" />
+
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container headerInner">
+        <a class="brand" href="/en/">
+          <img src="/assets/logo.webp" alt="ActiFly" width="28" height="28" />
+          <span>ActiFly</span>
+        </a>
+        <nav class="nav">
+          <a class="navLink" href="/en/">Home</a>
+          <a class="navLink" href="/en/contact/">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section--divider">
+        <div class="container">
+          <div class="cta">
+            <div class="sectionHeader" style="margin-bottom: 14px;">
+              <h1 class="h2">Beta Admin</h1>
+              <p class="p">
+                Private access. Token required. This page is not linked publicly.
+              </p>
+            </div>
+
+            <div class="adminGrid">
+              <div class="adminCard">
+                <div class="h3" style="margin:0 0 10px 0;">Access token</div>
+
+                <form id="tokenForm" class="adminForm" novalidate>
+                  <input
+                    class="input"
+                    id="tokenInput"
+                    type="password"
+                    placeholder="Paste BETA_ADMIN_TOKEN…"
+                    autocomplete="off"
+                    required
+                  />
+                  <div class="actions">
+                    <button class="btn btn--primary" type="submit">Save token</button>
+                    <button class="btn btn--ghost" type="button" id="clearTokenBtn">Clear</button>
+                  </div>
+                  <div class="formMsg" id="tokenMsg" aria-live="polite"></div>
+                </form>
+
+                <div class="small" style="margin-top:10px; opacity:.85;">
+                  Tip: Token is stored only in <code>sessionStorage</code> (until you close the tab).
+                </div>
+              </div>
+
+              <div class="adminCard">
+                <div class="adminCardTop">
+                  <div class="h3" style="margin:0;">Stats</div>
+                  <div class="actions">
+                    <button class="btn btn--ghost" type="button" id="refreshStatsBtn">Refresh</button>
+                  </div>
+                </div>
+
+                <div class="betaSlots" style="margin-top: 10px;">
+                  <div class="betaSlot">
+                    <div class="betaSlotTop">
+                      <div class="h3" style="margin:0;">Android</div>
+                      <div class="small"><span id="sAndroid">0</span></div>
+                    </div>
+                    <div class="betaBar"><div class="betaBarFill" id="sAndroidBar" style="width:0%"></div></div>
+                  </div>
+
+                  <div class="betaSlot">
+                    <div class="betaSlotTop">
+                      <div class="h3" style="margin:0;">iOS</div>
+                      <div class="small"><span id="siOS">0</span></div>
+                    </div>
+                    <div class="betaBar"><div class="betaBarFill" id="siOSBar" style="width:0%"></div></div>
+                  </div>
+
+                  <div class="betaSlot">
+                    <div class="betaSlotTop">
+                      <div class="h3" style="margin:0;">Google</div>
+                      <div class="small"><span id="sGoogle">0</span></div>
+                    </div>
+                    <div class="betaBar"><div class="betaBarFill" id="sGoogleBar" style="width:0%"></div></div>
+                  </div>
+
+                  <div class="betaSlot betaSlot--total">
+                    <div class="betaSlotTop">
+                      <div class="h3" style="margin:0;">Total</div>
+                      <div class="small"><span id="sTotal">0</span> / <span id="sMax">100</span></div>
+                    </div>
+                    <div class="betaBar"><div class="betaBarFill" id="sTotalBar" style="width:0%"></div></div>
+                  </div>
+                </div>
+
+                <div class="formMsg" id="statsMsg" aria-live="polite"></div>
+              </div>
+            </div>
+
+            <div class="adminCard" style="margin-top: 14px;">
+              <div class="adminCardTop">
+                <div>
+                  <div class="h3" style="margin:0;">Signups</div>
+                  <div class="small" style="opacity:.85;">Loaded from KV via /api/beta-admin?action=list</div>
+                </div>
+                <div class="actions">
+                  <button class="btn btn--ghost" type="button" id="loadListBtn">Load list</button>
+                  <button class="btn btn--ghost" type="button" id="exportBtn">Export CSV</button>
+                </div>
+              </div>
+
+              <div class="adminTools">
+                <input class="input" id="filterInput" placeholder="Search email…" />
+              </div>
+
+              <div class="tableWrap">
+                <table class="table" id="listTable">
+                  <thead>
+                    <tr>
+                      <th>Email</th>
+                      <th>Category</th>
+                      <th>Timestamp</th>
+                      <th>Country</th>
+                    </tr>
+                  </thead>
+                  <tbody id="listBody">
+                    <tr><td colspan="4" class="small" style="opacity:.8;">No data loaded.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="formMsg" id="listMsg" aria-live="polite"></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footerInner">
+        <div class="small">© <span id="y"></span> ActiFly</div>
+      </div>
+    </footer>
+
+    <script>
+      // Year
+      document.getElementById("y").textContent = new Date().getFullYear();
+
+      const QUOTAS = { android: 34, ios: 33, google: 33, total: 100 };
+
+      const tokenKey = "actifly_beta_admin_token";
+
+      const el = (id) => document.getElementById(id);
+
+      function setMsg(node, text, ok) {
+        node.textContent = text || "";
+        node.className = "formMsg " + (ok ? "ok" : "err");
+      }
+
+      function getToken() {
+        return sessionStorage.getItem(tokenKey) || "";
+      }
+
+      function setToken(v) {
+        sessionStorage.setItem(tokenKey, v);
+      }
+
+      function clearToken() {
+        sessionStorage.removeItem(tokenKey);
+      }
+
+      function setBar(barId, value, max) {
+        const bar = el(barId);
+        if (!bar) return;
+        const pct = max > 0 ? Math.max(0, Math.min(100, (value / max) * 100)) : 0;
+        bar.style.width = pct.toFixed(1) + "%";
+      }
+
+      async function apiAdmin(action) {
+        const token = getToken();
+        if (!token) throw new Error("Missing token");
+
+        const r = await fetch(`/api/beta-admin?action=${encodeURIComponent(action)}`, {
+          headers: { "Authorization": "Bearer " + token },
+          cache: "no-store"
+        });
+
+        if (r.status === 401) throw new Error("Unauthorized (token wrong?)");
+        return r;
+      }
+
+      async function loadStats() {
+        const msg = el("statsMsg");
+        try {
+          setMsg(msg, "Loading stats…", true);
+
+          // Use public stats for convenience (no token), but you could also call admin stats if you prefer.
+          const r = await fetch("/api/beta-stats", { cache: "no-store" });
+          const data = await r.json();
+
+          if (!data?.ok) throw new Error("Failed to load stats");
+
+          const c = data.counts || {};
+          const max = Number(data.max || 100);
+
+          el("sAndroid").textContent = String(c.android ?? 0);
+          el("siOS").textContent = String(c.ios ?? 0);
+          el("sGoogle").textContent = String(c.google ?? 0);
+          el("sTotal").textContent = String(c.total ?? 0);
+          el("sMax").textContent = String(max);
+
+          setBar("sAndroidBar", c.android ?? 0, QUOTAS.android);
+          setBar("siOSBar", c.ios ?? 0, QUOTAS.ios);
+          setBar("sGoogleBar", c.google ?? 0, QUOTAS.google);
+          setBar("sTotalBar", c.total ?? 0, QUOTAS.total);
+
+          setMsg(msg, "Stats updated.", true);
+        } catch (e) {
+          setMsg(msg, e.message || "Error loading stats.", false);
+        }
+      }
+
+      function renderTable(list) {
+        const tbody = el("listBody");
+        if (!list || !list.length) {
+          tbody.innerHTML = '<tr><td colspan="4" class="small" style="opacity:.8;">No entries yet.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = list.map((r) => {
+          const email = escapeHtml(r.email || "");
+          const cat = escapeHtml(r.category || "");
+          const ts = escapeHtml(r.ts || "");
+          const country = escapeHtml(r.country || "");
+          return `<tr>
+            <td><code>${email}</code></td>
+            <td>${cat}</td>
+            <td class="small" style="opacity:.9;">${ts}</td>
+            <td class="small" style="opacity:.9;">${country}</td>
+          </tr>`;
+        }).join("");
+      }
+
+      function escapeHtml(s) {
+        return String(s)
+          .replaceAll("&","&amp;")
+          .replaceAll("<","&lt;")
+          .replaceAll(">","&gt;")
+          .replaceAll('"',"&quot;")
+          .replaceAll("'","&#039;");
+      }
+
+      let lastList = [];
+
+      async function loadList() {
+        const msg = el("listMsg");
+        try {
+          setMsg(msg, "Loading list…", true);
+
+          const r = await apiAdmin("list");
+          const data = await r.json();
+
+          if (!data?.ok) throw new Error("Failed to load list");
+          lastList = Array.isArray(data.list) ? data.list : [];
+
+          renderTable(lastList);
+          setMsg(msg, `Loaded ${lastList.length} entries.`, true);
+        } catch (e) {
+          setMsg(msg, e.message || "Error loading list.", false);
+        }
+      }
+
+      async function exportCsv() {
+        const msg = el("listMsg");
+        try {
+          setMsg(msg, "Preparing CSV…", true);
+
+          const r = await apiAdmin("export");
+          if (!r.ok) throw new Error("Export failed");
+
+          const blob = await r.blob();
+          const url = URL.createObjectURL(blob);
+
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "actifly-beta-signups.csv";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+
+          URL.revokeObjectURL(url);
+          setMsg(msg, "CSV downloaded.", true);
+        } catch (e) {
+          setMsg(msg, e.message || "Error exporting CSV.", false);
+        }
+      }
+
+      // Token form
+      el("tokenForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const v = (el("tokenInput").value || "").trim();
+        const msg = el("tokenMsg");
+
+        if (!v || v.length < 16) {
+          setMsg(msg, "Token looks too short.", false);
+          return;
+        }
+
+        setToken(v);
+        el("tokenInput").value = "";
+        setMsg(msg, "Token saved in this session.", true);
+      });
+
+      el("clearTokenBtn").addEventListener("click", () => {
+        clearToken();
+        setMsg(el("tokenMsg"), "Token cleared.", true);
+      });
+
+      el("refreshStatsBtn").addEventListener("click", loadStats);
+      el("loadListBtn").addEventListener("click", loadList);
+      el("exportBtn").addEventListener("click", exportCsv);
+
+      // Filter
+      el("filterInput").addEventListener("input", (e) => {
+        const q = String(e.target.value || "").trim().toLowerCase();
+        if (!q) return renderTable(lastList);
+        renderTable(lastList.filter((r) => String(r.email || "").toLowerCase().includes(q)));
+      });
+
+      // auto-load stats
+      loadStats();
+    </script>
+
+    <style>
+      /* Admin page extras (keeps your global style clean) */
+      :root { color-scheme: dark; }
+
+      .adminGrid{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      @media (max-width: 900px){
+        .adminGrid{ grid-template-columns: 1fr; }
+      }
+
+      .adminCard{
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.04);
+        border-radius: 18px;
+        padding: 14px;
+      }
+      .adminCardTop{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .adminForm .actions{ margin-top: 10px; }
+      .adminTools{ margin: 12px 0; }
+
+      .tableWrap{
+        overflow:auto;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+      }
+      .table{
+        width:100%;
+        border-collapse: collapse;
+        min-width: 720px;
+        background: rgba(0,0,0,0.15);
+      }
+      .table th, .table td{
+        padding: 10px 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        text-align: left;
+      }
+      .table th{
+        position: sticky;
+        top: 0;
+        background: rgba(10, 18, 28, 0.85);
+        backdrop-filter: blur(8px);
+      }
+    </style>
+  </body>
+</html>
