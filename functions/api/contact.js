@@ -70,8 +70,8 @@ ${message}
       to: [{ email_address: { address: "support@actifly.app", name: "ActiFly Support" } }],
       reply_to: [{ address: email }],
       subject: subject
-        ? `[Web Request • ${category}] ${subject}`
-        : `[Web Request • ${category}] New contact request`,
+        ? `[${category}] ${subject}`
+        : `[${category}] New contact request`,
       textbody,
       ...(attachments.length ? { attachments } : {}),
     };
