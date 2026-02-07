@@ -724,3 +724,22 @@ body::before{
 .legalBody a:hover {
   text-decoration: underline;
 }
+/* Contact form alignment */
+.contactForm {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.contactForm .field {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.contactForm .label {
+  display: block;
+}
+
+.contactForm .input {
+  width: 100%;
+}
